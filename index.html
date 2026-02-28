@@ -1,15 +1,14 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Personal Portfolio Html5 One Page Template">
-    <meta name="keywords" content="agency, bootstrap, business, corporate, creative, landing page, marketing, multipurpose, product, product launch, responsive, software, startup, startup landing page">
-    <meta name="author" content="ParExcellence">
-    <!-- Site Title -->
+    <meta name="description" content="叶顺龙的个人主页 - .NET软件开发工程师 / AI全栈开发">
+    <meta name="keywords" content="叶顺龙, .NET, C#, AI, 全栈开发, 软件工程师, 慧咨环球, WiseTech Global">
+    <meta name="author" content="叶顺龙">
     <title>叶顺龙的个人主页</title>
- 
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Material Icon -->
@@ -20,8 +19,344 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">
-    <!-- Custom  CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ===== 经历 Tab 导航 ===== */
+        .exp-tab-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+        .exp-tab-btn {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 30px;
+            padding: 5px 20px;
+            color: #212121;
+            border-radius: 30px;
+            border: none;
+            background: #f1f3f6;
+            box-shadow: 3px 3px 3px #e1e1e1, -3px -3px 3px #fafafa;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .exp-tab-btn.active,
+        .exp-tab-btn:hover {
+            background: #FF9E2B;
+            color: #fff;
+            box-shadow: inset 3px 3px 3px #d77807, inset -3px -3px 3px #FFB347;
+        }
+        .exp-tab-pane { display: none; }
+        .exp-tab-pane.active { display: block; }
+
+        /* ===== 经历卡片 ===== */
+        .exp-card {
+            background: #f1f3f6;
+            border-radius: 1.25rem;
+            box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+            padding: 30px 36px;
+            margin-bottom: 24px;
+        }
+        .exp-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .exp-card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333743;
+            margin: 0;
+        }
+        .exp-card-badge {
+            background: #FF9E2B;
+            color: #fff;
+            border-radius: 30px;
+            padding: 3px 16px;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        .exp-card-sub {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+        .exp-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #e4e6ea;
+        }
+        .exp-item:last-child { border-bottom: none; }
+        .exp-item-title {
+            font-weight: 600;
+            color: #333743;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        .exp-item-desc {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .tech-tag {
+            background: #fff;
+            color: #FF9E2B;
+            border-radius: 6px;
+            padding: 2px 10px;
+            font-size: 12px;
+            font-weight: 400;
+            box-shadow: 1px 1px 3px #d0d0d0, -1px -1px 3px #fafafa;
+        }
+        .school-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .school-list li {
+            padding: 11px 0;
+            border-bottom: 1px solid #e4e6ea;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            line-height: 1.6;
+        }
+        .school-list li:last-child { border-bottom: none; }
+        .school-list li::before {
+            content: "▸";
+            color: #FF9E2B;
+            flex-shrink: 0;
+        }
+
+        /* ===== 项目集筛选按钮（复用 .filters 风格） ===== */
+        .portfolio-filter-new {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .pf-btn {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 30px;
+            padding: 5px 20px;
+            color: #212121;
+            border-radius: 30px;
+            border: none;
+            background: #f1f3f6;
+            box-shadow: 3px 3px 3px #e1e1e1, -3px -3px 3px #fafafa;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: all 0.25s;
+        }
+        .pf-btn.active,
+        .pf-btn:hover {
+            background: #FF9E2B;
+            color: #fff;
+        }
+
+        /* ===== 项目卡片（neumorphism 风格） ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 992px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .exp-card { padding: 20px 18px; }
+        }
+        .portfolio-grid-item { display: block; }
+        .portfolio-grid-item.hidden { display: none; }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: #f1f3f6;
+            box-shadow: 3px 3px 3px #dfdfdf, -3px -3px 3px #fafafa;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+            height: 100%;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 6px 6px 16px #d0d0d0, -6px -6px 16px #ffffff;
+        }
+        .portfolio-card-img-placeholder {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8eaf0;
+        }
+        .portfolio-card-img-placeholder i {
+            font-size: 52px;
+            color: #ccc;
+        }
+        .portfolio-card-body {
+            padding: 18px 20px 16px;
+        }
+        .portfolio-card-cat {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #FF9E2B;
+            margin-bottom: 6px;
+        }
+        .portfolio-card-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333743;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .portfolio-card-desc {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* ===== 悬浮详情层 ===== */
+        .portfolio-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(40, 44, 60, 0.94);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 22px 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 1.25rem;
+        }
+        .portfolio-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+        .overlay-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .overlay-detail {
+            font-size: 13px;
+            color: #d0d0d8;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            flex: 1;
+            overflow: hidden;
+        }
+        .overlay-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+        .overlay-tag {
+            background: rgba(255,158,43,0.25);
+            color: #FFD49E;
+            border-radius: 6px;
+            padding: 2px 9px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        .overlay-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .overlay-link {
+            color: #FFD49E;
+            font-size: 12px;
+            text-decoration: none;
+            border: 1px solid rgba(255,212,158,0.4);
+            border-radius: 4px;
+            padding: 3px 10px;
+            transition: background 0.2s;
+        }
+        .overlay-link:hover {
+            background: rgba(255,158,43,0.3);
+            color: #fff;
+        }
+        .overlay-internal-label {
+            color: #aaa;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* ===== 荣誉卡片（neumorphism 风格） ===== */
+        .honor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .honor-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 480px) {
+            .honor-grid { grid-template-columns: 1fr; }
+        }
+        .honor-card {
+            background: #f1f3f6;
+            border-radius: 1.25rem;
+            padding: 22px 22px 18px;
+            box-shadow: 3px 3px 3px #dadada, -3px -3px 3px #fafafa;
+            transition: transform 0.3s ease;
+        }
+        .honor-card:hover {
+            transform: translateY(-6px);
+        }
+        .honor-card-level {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #FF9E2B;
+            margin-bottom: 8px;
+        }
+        .honor-card-title {
+            font-size: 14px;
+            color: #333743;
+            font-weight: 500;
+            line-height: 1.55;
+            margin: 0;
+        }
+        .honor-card-year {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* ===== 响应式调整 ===== */
+        .informative-txt li {
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,9 +373,7 @@
     <div id="main-wrapper">
         <!-- Start Navbar -->
         <div class="menu-toggler">
-            <span>
-                <i class="mdi mdi-menu"></i>
-            </span>
+            <span><i class="mdi mdi-menu"></i></span>
         </div>
         <header>
             <div class="header-navbar h-100">
@@ -60,14 +393,14 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#portfolio">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-grid-large"></i></span>
-                                <span>项目</span>
+                            <a href="#experience">
+                                <span class="menu-icon mx-auto"><i class="mdi mdi-briefcase-outline"></i></span>
+                                <span>经历</span>
                             </a>
                         </li>
                         <li class="list-group-item">
                             <a href="#client">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-chart-bubble"></i></span>
+                                <span class="menu-icon mx-auto"><i class="mdi mdi-trophy-outline"></i></span>
                                 <span>荣誉</span>
                             </a>
                         </li>
@@ -79,15 +412,13 @@
                         </li>
                     </ul>
                 </nav>
-
             </div>
-
         </header>
         <!-- End Navbar -->
+
         <!-- Start Home -->
         <section class="home-bg section active" id="home">
-            <div id="particles-js">
-            </div>
+            <div id="particles-js"></div>
             <div class="section-area">
                 <div class="section-content">
                     <div class="hero-text-area">
@@ -99,12 +430,12 @@
                                             <div class="wel-txt">你好</div>
                                             <h1>我是一名&nbsp;<span class="typed"></span></h1>
                                         </div>
-                                        <ul class="informative-txt d-flex justify-content-center align-items-center">
-                                            <li>软件开发工程师</li>
+                                        <ul class="informative-txt d-flex justify-content-center align-items-center flex-wrap">
+                                            <li>.NET 软件开发工程师</li>
                                             <li><i class="mdi mdi-circle mdi-10px ml-3 mr-3"></i></li>
-                                            <li>南京理工大学硕士在读学生</li>
+                                            <li>AI 全栈开发者</li>
                                             <li><i class="mdi mdi-circle mdi-10px ml-3 mr-3"></i></li>
-                                            <li>医学影像相关算法研究生</li>
+                                            <li>南京理工大学计算机硕士</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -115,6 +446,7 @@
             </div>
         </section>
         <!-- End Home -->
+
         <!-- Start About-Us -->
         <section class="section bg-light line-vector" id="aboutus">
             <div class="section-area">
@@ -123,60 +455,57 @@
                         <div class="title-block mx-auto">
                             <div class="section_title mb-4 text-center">
                                 <h2><span>关于我</span></h2>
-                                <p class="section_subtitle mx-auto">我是南京人，本科就读于南京师范大学（211）软件工程专业，硕士就读于南京理工大学（211）。研究方向为医学影像处理。（深度学习、视觉算法）</p>
+                                <p class="section_subtitle mx-auto">软件开发工程师，在读期间从事计算机视觉方向的学术研究，毕业后加入 WiseTech Global 从事 .NET 企业级软件开发，并在业余时间持续进行 AI 全栈应用的探索。</p>
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <div class="col-md-8 col-sm-12">
                                 <div class="about-text-block">
                                     <div class="about-content">
-                                        <h4>
-                                            了解我<br> 从这四个方面出发
-                                        </h4>
-                                        <div class="text">从我的专业知识出发，我熟练使用C++、Java、Python、C#等编程语言及其通用框架（例如Spring全家桶、Pytorch等），本科、硕士期间各项专业课成绩都名列前茅，曾<strong>两次荣获国家奖学金</strong>。<strong>（0.2%）</strong> </div>
-                                        <div class="text">从我的算法水平出发，我以队长身份在ACM-ICPC区域赛中获得<strong>银牌</strong>，在蓝桥杯程序设计竞赛中获得Python研究生组<strong>全省第一</strong>，并多次获得国家级一、二等奖。</div>
-                                        <div class="text">从我的竞赛履历出发，我参与并主持了大学生创新创业竞赛、全国大学生计算机设计大赛、全国大学生数学建模等竞赛，并凭借设计的项目获得了多个<strong>国家级一等奖</strong>。 </div>
-                                        <div class="text">从我的项目经验出发，我有丰富的科研经验，以<strong>学生一作</strong>发表<strong>CCF A类会议长文一篇</strong>，<strong>Poster一篇</strong>，<strong>CCF A类期刊、SCI一区TOP期刊一篇</strong>，EI会议论文两篇；学生二作发表CCF A类会议论文一篇，学生三作发表CCF A类会议论文一篇，B类会议论文一篇，并多次参加国内国际学术会议和学术交流。</div>
-                                        <div class="text">查看我的PDF<a href="document/resume.pdf">简历</a>（精简版，使用Latex编写）</div>
-                                        <div class="text">查看我的PDF<a href="document/resume_dev.pdf">简历</a>（完整版，使用Latex编写）</div>
+                                        <h4>简单认识一下我</h4>
+                                        <div class="text">我目前在 <strong>慧咨环球（WiseTech Global）</strong> 担任 .NET 软件开发工程师（2024年11月至今），主要使用 C# 参与企业级物流软件 CargoWise 的核心组件维护与迭代，负责第三方依赖升级、线程安全修复、数据库性能优化及 UI 框架适配等工作。</div>
+                                        <div class="text">与此同时，我在业余时间以 <strong>AI 全栈开发</strong>方式持续输出，主要面向医疗机构，使用 MCP 协议 + 大语言模型接口，落地了多个体检与医疗数据可视化及智能问答系统，已在北京世纪坛医院、上海四院等机构投入使用。</div>
+                                        <div class="text">在校期间，我以 <strong>学生一作</strong>身份发表 CCF A 类会议论文及 SCI 一区期刊论文各一篇，曾获本科和硕士两次<strong>国家奖学金</strong>，并以队长身份在 ACM-ICPC 中斩获<strong>银牌</strong>。</div>
+                                        <div class="text">查看我的PDF <a href="document/resume.pdf">简历</a>（中文版，使用 LaTeX 编写）</div>
+                                        <div class="text">查看我的PDF <a href="document/resume_bilingual.pdf">简历</a>（英文版，使用 LaTeX 编写）</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-8">
+                            <div class="col-md-4 col-sm-8 mx-auto">
                                 <div class="about-img-box">
                                     <div class="image">
-                                        <img src="images/aboutus/avatar.jpg" class="img-fluid" alt="">
+                                        <img src="images/aboutus/avatar.jpg" class="img-fluid" alt="叶顺龙">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--Start Counter Block-->
+                        <!-- Counter Block -->
                         <div class="row">
                             <div class="col-lg-3 col-6">
                                 <div class="counter-block">
-                                    <span class="mdi mdi-fire"></span>
+                                    <span class="mdi mdi-briefcase-outline"></span>
+                                    <div class="details">
+                                        <h3 class="mb-0 mt-0 number"><em class="count">23</em>+</h3>
+                                        <p class="mb-0">工作月数（慧咨环球）</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6">
+                                <div class="counter-block">
+                                    <span class="mdi mdi-code-tags"></span>
+                                    <div class="details">
+                                        <h3 class="mb-0 mt-0 number"><em class="count">3</em>+</h3>
+                                        <p class="mb-0">熟练掌握的编程语言</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6">
+                                <div class="counter-block">
+                                    <span class="mdi mdi-hospital-building"></span>
                                     <div class="details">
                                         <h3 class="mb-0 mt-0 number"><em class="count">3</em></h3>
-                                        <p class="mb-0">完成大型开发项目</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="counter-block">
-                                    <span class="mdi mdi-coffee-outline"></span>
-                                    <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">80</em></h3>
-                                        <p class="mb-0">总评优秀的专业课百分比</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="counter-block">
-                                    <span class="mdi mdi-account-multiple-outline"></span>
-                                    <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">4</em></h3>
-                                        <p class="mb-0">熟练掌握程序设计语言</p>
+                                        <p class="mb-0">AI系统落地医疗机构</p>
                                     </div>
                                 </div>
                             </div>
@@ -184,1832 +513,304 @@
                                 <div class="counter-block">
                                     <span class="mdi mdi-trophy-outline"></span>
                                     <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">9</em></h3>
+                                        <h3 class="mb-0 mt-0 number"><em class="count">9</em>+</h3>
                                         <p class="mb-0">国家级以上荣誉</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--End Counter Block-->
-                        <!--Start Expert Block-->
+                        <!-- End Counter Block -->
+
+                        <!-- Expert Block -->
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
-                                    <img src="images/aboutus/intellijidea.svg" class="img-fluid" alt="" />
-                                    <h3>软件开发工程师</h3>
-                                    <p class="mb-0">我有扎实的软件开发，并且完成过多个Web项目，熟练掌握Spring系列框架</p>
+                                    <img src="images/aboutus/intellijidea.svg" class="img-fluid" alt="软件开发" />
+                                    <h3>.NET 软件开发工程师</h3>
+                                    <p class="mb-0">使用 C# 参与大型企业级物流平台 CargoWise 的核心组件迭代维护</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
-                                    <img src="images/aboutus/semanticscholar.svg" class="img-fluid" alt="" />
-                                    <h3>南京理工大学硕士在读学生</h3>
-                                    <p class="mb-0">我以优异的成绩保送至南京理工大学攻读硕士研究生</p>
+                                    <img src="images/aboutus/semanticscholar.svg" class="img-fluid" alt="AI开发" />
+                                    <h3>AI 全栈开发</h3>
+                                    <p class="mb-0">基于 MCP + LLM 开发医疗数据可视化与智能问答系统</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="expert-box text-center">
-                                    <img src="images/aboutus/pytorch.svg" class="img-fluid" alt="" />
-                                    <h3>医学影像相关算法研究生</h3>
-                                    <p class="mb-0">我熟练掌握Pytorch框架、机器学习经典模型、OpenGL、OpenCV等。
+                                    <img src="images/aboutus/pytorch.svg" class="img-fluid" alt="学术研究" />
+                                    <h3>计算机视觉研究</h3>
+                                    <p class="mb-0">研究方向为医学图像分割，以一作身份发表 CCF A 类及 SCI 一区期刊论文</p>
                                 </div>
                             </div>
                         </div>
-                        <!--End Expert Block-->
+                        <!-- End Expert Block -->
                     </div>
                 </div>
             </div>
         </section>
         <!-- End About-Us -->
-        <div class="modal fade" id="myModal-EAGLE" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于Attention的遥感图像VQA</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-对许多人来说，图像理解是一个重要的研究问题。
-诸如文本到图像检索、视觉问答等应用，视觉对话等等。
-在所有这些应用程序中，
-如何理解通过查询获取图像一直是一个挑战。
-大多数研究都集中在在一般图像上，
-并获得了所需的结果，但对于某些图像则不然。
-具体的实际应用，例如遥感。
-为了解决这个问题，在本文中，
-我们提出了一种增强的基于注意力的方法，
-题为EAGLE，将遥感图像和NLP有效结合。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV + NLP</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2019年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-Pave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">简易版PAVE（实现中）</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-涉及技术：
-界面（C# WPF）、
-代码结构（MVVM）、
-数据库（Entity Framework、Mysql）。
 
-当前进度：
-数据库设计、基础框架搭建（Day1）、
-界面设计（Day2）、
-数据链路走通、界面优化（Day3）、
-界面进一步优化（Day4-6）。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">C#</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2024年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-ARLayout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">多目标重布局AR可视项目</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-我们日常生活中的实物，通常按固定方式分组或排序，  
-比如图书馆的书籍按分类号排列，  
-但为了更好比较，我们常需要根据评分、出版社、  
-评论、出版年、关键词等属性，重新分组或排序。  
-本文提出一种名为DRCmpVis的移动应用框架，  
-通过手机摄像头扫描实物，用虚拟形象替换，  
-在虚拟环境中进行筛选、重组和重新排序，  
-以便在不改变实物布局的情况下，进行多属性比较。  
-实验结果证明该方法高效实用。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV+可视化</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2021年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-IGScript" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">领域自定义可视化语法</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-我们提出了IGScript，
-这是一种新颖的基于脚本的交互grammar工具，
-可以帮助构建用于通信的科学数据表示动画。
-我们设计了一个双空间接口和一个编译器，
-将grammar语句或脚本等自然语言转换为数据故事动画，
-以对脚本驱动的数据预表达进行交互式定制，
-然后开发了一个代码生成器（反编译器），
-将交互式数据探索动画翻译回脚本代码，
-以实现语句参数。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">可视化</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2021年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-BuddyOJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">伙伴在线评测系统</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-主要任务：
-快速评价一份代码是否正确且高效得完成了计算任务。
-
-主要工作：
-负责评测机内核代码编写及网站架构设计；
-负责课题组的人员管理，
-以及与其他课题组的沟通协调；
-负责科研报告、研究报告等项目文档的撰写、整理和汇报；
-参与项目调研和需求分析工作。
-开发一年内，该项目已获得七百位以上活跃用户，
-在线提交代码次数超过4万次。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">Web开发</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2019年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-NoiseSeg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">自适应噪声生成模型</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-训练深度卷积神经网络时，
-噪声通常会影响分割效果。
-因此很多神经网络会通过人为添加随机噪声，
-来强化网络在有噪声的情况下的识别能力。
-但是由于不清楚数据的噪声分布，
-网络训练过程只能产生随机高斯噪声，
-而没法模拟产生真实世界的噪声。
-在医学影像数据处理领域中，
-对图像轮廓更加关注，
-因此可以考虑对轮廓加权生成噪声。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2022年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-sparse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">稀疏编码增强的医学图像分割</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-医学图像的精准分割，对临床诊断至关重要。  
-融合上下文关系能增强神经网络的表达能力，  
-传统LSTM和自注意力机制，能捕捉数据的全局依赖，  
-但两者往往独立工作，缺乏直接联系。  
-本文创新地将LSTM与自注意力的稀疏编码结合，  
-利用LSTM的状态压缩与历史信息，
-提升自注意力的全局捕捉能力。  
-我们设计了两个模块，将自注意力嵌入LSTM中，  
-无额外计算开销下，更好地处理全局依赖。  
-实验表明，这些模块提升了医学图像分割的准确性。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2024年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-lstmsa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于LSTM与自注意力融合的医学图像分割</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-医学图像分割在临床应用中至关重要，
-但由于解剖结构复杂，  
-且需精确定位，分割任务仍充满挑战。  
-本文提出了LSTMSA模型，
-将自注意力机制与LSTM模块结合，  
-解决了传统方法易早期收敛的问题，  
-通过嵌入自注意力，平衡训练过程，  
-同时利用LSTM处理时间信息，保留局部细节。  
-此外，LSTMSA还避免了自注意力导致的信息丢失，  
-在四个医学图像数据集上的实验结果显示，  
-LSTMSA在精度上达到领先水平，
-且保留了重要的解剖特征。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2024年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-pseudo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于增强伪标签的半监督医学图像分割</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-半监督学习在医学图像分割中，  
-因数据标注有限而备受关注。  
-现有方法多关注高置信伪标签，  
-却忽视了大量低置信伪标签的潜力。  
-本文提出新方法，系统利用低置信伪标签，  
-在图像层面通过超像素算法和信息熵投票，  
-保证空间一致性，在特征层面利用三元组损失，  
-区分相似和不相似区域。  
-同时，集成互相校正框架，迭代优化伪标签质量。  
-实验结果显示该方法在两个公开数据集上，  
-优于所有基线，显著提升分割性能。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2024年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-NoiserSeg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">渐进式半监督息肉分割</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-医学影像在疾病诊断和监测中至关重要，  
-其中精确的息肉分割尤为关键。  
-但由于标注数据稀缺，  
-分割模型的开发受到限制。  
-半监督学习成为解决这一问题的重要方法。  
-传统方法通过强弱扰动一致性损失来提供监督，  
-但在训练初期强扰动占主导，  
-导致模型难以提取有效特征，影响性能。  
-为此，我们提出了一种新方法，  
-逐步引入强弱扰动监督信号，  
-让模型从训练初期就专注学习相关特征，  
-缓解早期主导问题，提升分割效果。  
-在两个常用息肉分割数据集上，  
-该方法超越了现有的最优方法，  
-显著提高了分割精度。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">CV</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2023年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="myModal-leap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于LeapMotion手势交互设备的三位迹线查询</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-3D流线数据分析广泛应用于气象和医学等领域，  
-例如表示空气流动的流线或显示水流动的DTI数据。  
-领域专家常需查询特定曲线特征，  
-以过滤无关数据，分析背后的隐藏现象。  
-目前，基于特征的交互式流线可视化多使用鼠标绘制2D曲线，  
-但2D曲线难以表现3D流线的空间特征，  
-导致查询准确性低，增加用户认知负担。  
-本文提出基于多重Leap Motion的3D流线可视化与查询系统，  
-允许用户通过手指自然输入3D数据，并进行旋转、缩放等交互。  
-我们设计了特征提取算法，用于查询流场数据集中的流线。  
-通过路径数据、DTI数据和手势轨迹的测试，  
-结果表明显著提高了特征提取效果。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">可视化</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2022年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-seismic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于VR设备的交互式地质数据可视化</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-地震数据可视化与分析对石油和天然气勘探至关重要，  
-帮助地质学家和勘探专家理解地下地质结构。  
-地下流动路径（UPFs）是重要的地层结构，  
-与油气分布有关。  
-传统的地震数据可视化系统使用电脑屏幕、鼠标和键盘，  
-但缺乏深度信息和操作不便一直困扰用户。  
-虚拟现实技术在实验教学、
-飞行模拟和文化遗产重建中广泛应用，  
-它提供的沉浸式体验弥补了传统设备的不足。  
-本文设计了一种基于虚拟现实设备的地震数据可视化系统，  
-用户可通过虚拟现实控制器调整传输函数，  
-进行旋转、缩放等操作，  
-并通过二次曲面距离或切片查询详细探索UPFs。  
-结果表明，该方法在一定程度上替代了传统设备，  
-提供了更沉浸的探索体验。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">可视化</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2021年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-wave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于QT的波形图数据可视化及磁盘快速写入</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-该项目完成了波形图的实时数据可视化，
-并在其中解决了一个主要的短时间内大批量向硬盘写入数据的问题，
-即在测试代码中，理想情况下每次都能够写入大量相同数据，
-但实际场景中，会出现每次写入的数据量不同，
-写入数据频率高的情况，因此需要对多线程写入进行改进。
-出现问题的原因是多个线程共有文件指针位置竞争条件：
-每个线程会设置文件指针的位置并进行写入操作。
-这可能导致线程之间竞争文件指针的问题，
-从而出现不一致的写入。
-解决这个问题，可以选择把输入数据都攒着，
-每隔几个G，用异步方法写入一次文件。
-这种方法没法做到实时写入，
-但是通过QByteArray的位置来回跳跃写入，
-可以保证数据最多只进行一次缓冲区的复制和一次写入磁盘操作，
-速度可以达到理论最大值。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">QT软件开发</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2023年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-surface" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">基于二次度量误差的曲面重构算法设计</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-现有与曲面处理相关的工作中，
-大多力求在曲面细分和曲面简化领域
-获得更好的效果或者适应更特殊的的数据，
-很少有工作关注使用曲面细分和曲面简化算法
-来更好的重构曲面。
-但事实上曲面细分和曲面简化工作中的长处
-可以完成互补，
-以完成一个全新的目标。
-基于这一点，
-本工作提出了一种基于二次度量误差的曲面重构算法，
-通过将经典二次度量误差在衡量边坍缩代价上的优势，
-在曲面细分过程中进行整合，
-最终达到了使得曲面顶点分布更合理的效果。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">计算机图形学、曲面重构</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2022年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-reader" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">精分说书人</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-有一天我眼睛发炎在家，
-不能看电子屏幕。
-想听个小说，
-却发现机器朗读的小说，
-语气毫无波澜的同时，
-小说中不管男性角色还是女性角色，
-都是同一个人在读，
-让人感觉相当的出戏。
-
-于是，就有了这个项目的灵感。
-如果能有一个软件，
-能够根据文本内容，
-自动识别文本中的角色，
-然后根据角色的
-性别、情绪、语速、语调等特征，
-自动切换不同的音色，
-那么，听小说的体验会不会更好呢？
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">自然语言处理、TTS</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2022年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-huawei" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">码头船舶货运调度</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-码头船舶货运调度是一个复杂的问题，
-涉及到船舶的到港时间、货物的装卸时间、
-码头的设备状况、人员安排等多个因素。
-在实际操作中，
-码头的运输机器需要根据这些因素，
-合理安排船舶的到港时间和货物的装卸时间，
-以保证码头的正常运转。
-在这个项目中，
-我们将使用强化学习算法，
-根据码头的实际情况，
-设计一个合理的运输机器调度算法，
-以提高码头的工作效率。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">路径规划、调度、避障算法</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2022年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-turing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">迷宫战斗AI机器人</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-迷宫战斗AI机器人是一个基于强化学习的项目，
-主要用于解决迷宫战斗中的AI机器人的问题。
-在迷宫战斗中，
-AI机器人需要根据自己的位置和周围的环境，
-选择合适的行动来躲避敌人的攻击，
-同时找到敌人的位置并进行攻击。
-在这个项目中，
-我们将使用强化学习算法，
-设计一个合理的AI机器人策略，
-以提高AI机器人在迷宫战斗中的表现。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">路径规划、强化学习</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2022年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-polish" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">器材抛光结果辨别系统</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-器材抛光结果辨别系统是一个基于深度学习的项目，
-主要用于解决器材抛光结果的辨别问题。
-在器材抛光过程中，
-抛光结果的质量直接影响器材的使用效果，
-因此需要对抛光结果进行辨别。
-在这个项目中，
-我们将使用随机森林、KNN、SVM等深度学习算法，
-设计一个合理的器材抛光结果辨别系统，
-以提高器材抛光结果的辨别准确率。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">机器学习</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2023年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-defect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">表面缺陷检测系统</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-表面缺陷检测系统是一个基于深度学习的项目，
-主要用于解决表面缺陷检测的问题。
-在这个项目中，
-我们将使用Yolo系列目标检测算法，
-设计一个合理的表面缺陷检测系统，
-以提高表面缺陷的检测准确率。
-同时，我们还将设计一个表面缺陷检测系统的算法部署方案，
-以提高表面缺陷检测系统的实际应用效果。
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">目标检测、算法部署</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2023年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal-cvmart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="text-center">电动车头盔佩戴检测系统</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-info text-center">
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">介绍</h4>
-                                        <pre class="text-muted">
-电动车头盔佩戴检测系统是一个基于深度学习的项目，
-主要用于解决电动车头盔佩戴检测的问题。
-在这个项目中，
-我们将使用Yolo系列目标检测算法，
-设计一个合理的电动车头盔佩戴检测系统，
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-human"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">目标检测、算法部署</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-clock"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">2023年</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Start Portfolio -->
-        <section id="portfolio" class="section portfolio-section">
+        <!-- Start Experience -->
+        <section class="section" id="experience">
             <div class="section-area">
                 <div class="section-content">
                     <div class="container">
                         <div class="title-block mx-auto">
                             <div class="section_title mb-4 text-center">
-                                <h2><span>项目</span></h2>
-                                <p class="section_subtitle mx-auto">在这，你能看到我主持或参与过的项目</p>
+                                <h2><span>工作与经历</span></h2>
+                                <p class="section_subtitle mx-auto">工作经历、副业项目与在校成果</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <!--   Portfolio Filters   -->
-                            <ul id="portfolio-filter" class="portfolio-filter filters">
-                                <li class="button-border list-inline-item">
-                                    <a href="#" data-filter="*" class="pill-button active">所有</a>
-                                </li>
-                                <li class="button-border list-inline-item">
-                                    <a href="#" data-filter=".dev" class="pill-button">软件开发项目</a>
-                                </li>
-                                <li class="button-border list-inline-item">
-                                    <a href="#" data-filter=".vis" class="pill-button">计算机图形学/可视化开发项目</a>
-                                </li>
-                                <li class="button-border list-inline-item">
-                                    <a href="#" data-filter=".dl" class="pill-button">深度学习项目</a>
-                                </li>
-                            </ul>
+
+                        <!-- Tab Nav -->
+                        <div class="exp-tab-nav">
+                            <button class="exp-tab-btn active" onclick="switchExpTab('tab-core')">① .NET 软件开发（慧咨环球）</button>
+                            <button class="exp-tab-btn" onclick="switchExpTab('tab-ai')">② AI 全栈开发（副业）</button>
+                            <button class="exp-tab-btn" onclick="switchExpTab('tab-school')">③ 在校成果（精选）</button>
                         </div>
-                        <div class="portfolio-items row">
-                            <div class="col-lg-12 portfolio-item dev">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/PAVE.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="images/portfolio/v1.png">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> Day1
-                                                </a>
-                                                <a href="images/portfolio/v2.png">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> Day2
-                                                </a>
-                                                <a href="images/portfolio/v3.png">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> Day3
-                                                </a>
-                                                <a href="images/portfolio/v4.png">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> Day4
-                                                </a>
-                                                <a href="images/portfolio/v5.png">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> Day5
-                                                </a>
-                                                <a href="images/portfolio/v6.png">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> Day6
-                                                </a>
-                                                <a href="document/pave.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                                <a href="https://github.com/yeshunlong/PAVE/tree/main">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 开源
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">简易版PAVE（实现中）</h5>
-                                            <br>
-                                            <p style="color: white;">从零开始实现一个简易版的PAVE板子，用于熟悉和复习C#基础知识。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-Pave">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
+
+                        <!-- Tab 1: 慧咨环球 -->
+                        <div class="exp-tab-pane active" id="tab-core">
+                            <div class="exp-card">
+                                <div class="exp-card-header">
+                                    <h4 class="exp-card-title">慧咨环球 / WiseTech Global</h4>
+                                    <span class="exp-card-badge">2024.11 — 至今</span>
+                                </div>
+                                <div class="exp-card-sub">System Components - CORE &nbsp;·&nbsp; .NET 软件开发工程师 &nbsp;·&nbsp; 主要语言：C#</div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">核心组件升级与兼容性维护</div>
+                                    <p class="exp-item-desc">负责邮件处理组件 MailKit 及相关第三方依赖的跨版本升级（v4.11.0 → v4.14.1）。在 .NET Framework 4.8 与 .NET Standard 2.0 混合构建环境中，解决了 System.Buffers / System.Memory 等库的菱形依赖冲突，同时补充了 NTLM 认证握手探测逻辑，使新版组件向下兼容旧版 Exchange Server。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">C# / .NET</span>
+                                        <span class="tech-tag">MailKit / MimeKit</span>
+                                        <span class="tech-tag">Paket / NuGet</span>
+                                        <span class="tech-tag">NTLM 认证</span>
+                                        <span class="tech-tag">依赖管理</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">多线程并发排查与内存泄漏修复</div>
+                                    <p class="exp-item-desc">调查并修复业务对象工厂 BusinessObjectFactory 中的 ThreadSentry 跨线程访问异常，定位根因为 特定Service 错误创建了额外的 Factory 实例。同步修复了 KTextBox 控件事件反注册中误用导致的 GDI 句柄泄漏（120+ 个未释放 Factory 对象），并通过 WeakReference 单元测试验证内存释放行为。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">ThreadSentry</span>
+                                        <span class="tech-tag">GDI 句柄</span>
+                                        <span class="tech-tag">WeakReference</span>
+                                        <span class="tech-tag">Memory Profiler</span>
+                                        <span class="tech-tag">多线程</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">数据库查询与报表性能优化</div>
+                                    <p class="exp-item-desc">参与重构审计日志报表加载超时问题：将全局事件查询迁移至专用审计数据库，实现读写分离；将报表数据获取逻辑从扫描 EDT 事件改写为基于 ATC/DTC 事件，大幅减少无效日志扫描量。另对数据库表的宽聚集索引进行降级重构，减少页分裂与 B-Tree 维护成本。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">SQL Server</span>
+                                        <span class="tech-tag">索引优化</span>
+                                        <span class="tech-tag">读写分离</span>
+                                        <span class="tech-tag">Event Sourcing</span>
+                                        <span class="tech-tag">Extended Events</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">系统安全与权限逻辑加固</div>
+                                    <p class="exp-item-desc">修复 NXML 导出功能的权限漏洞，采用策略模式设计接口，解耦安全检查逻辑与业务逻辑。修复 Scheduled Reports 模块中通过权限组合（"复制+删除"）间接绕过他人数据保护的逻辑漏洞。同时修复已知 CVE 漏洞。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">权限控制</span>
+                                        <span class="tech-tag">策略模式</span>
+                                        <span class="tech-tag">CVE 修复</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">WinForms → Web 框架适配（Blazor）</div>
+                                    <p class="exp-item-desc">参与将传统 WinForms 桌面应用迁移至 Blazor Web 框架的适配工作。修复异步竞态条件（ContextMenu.UpdateAsync 在对象销毁后仍被调用）、鼠标事件模拟（用 MouseEnter/Leave 替代高频 MouseMove）、光标位置同步等问题；修复流式 I/O 超时（RemoteJSDataStream 生命周期管理）；在控件基类中补全相应事件的递归触发逻辑。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">WinForms</span>
+                                        <span class="tech-tag">Blazor</span>
+                                        <span class="tech-tag">异步编程</span>
+                                        <span class="tech-tag">事件驱动</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">UI 自动化测试重构</div>
+                                    <p class="exp-item-desc">系统性重构 Playwright UI 端到端测试用例，将旧版 ElementHandle API 全面迁移至现代 Locator API（内置自动等待）；移除代码中大量硬编码等待，改用基于状态断言的 WaitFor 机制，显著降低了 CI/CD 流水线上的随机超时故障率。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">Playwright</span>
+                                        <span class="tech-tag">E2E 测试</span>
+                                        <span class="tech-tag">Locator API</span>
+                                        <span class="tech-tag">CI/CD</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">韩国电子发票合规性开发</div>
+                                    <p class="exp-item-desc">为满足韩国国税厅（NTS）最新合规要求，重构电子发票税务类型映射逻辑，实现更细粒度的税务分类规则引擎；同步对大量遗留类按国家代码标准进行重构，消除缩写歧义。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">合规开发</span>
+                                        <span class="tech-tag">XML / e-Invoicing</span>
+                                        <span class="tech-tag">规则引擎</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dev">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/BuddyOJ.jpg" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="http://braisedpork.top/BuddyOJ">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 网页
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">伙伴在线评测系统</h5>
-                                            <br>
-                                            <p style="color: white;">对应国家级大学生创新创业项目已优秀结项；项目主持人。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-BuddyOJ">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
+                        </div>
+
+                        <!-- Tab 2: AI 全栈 -->
+                        <div class="exp-tab-pane" id="tab-ai">
+                            <div class="exp-card">
+                                <div class="exp-card-header">
+                                    <h4 class="exp-card-title">AI 全栈开发（副业）</h4>
+                                    <span class="exp-card-badge">2025.05 — 至今</span>
+                                </div>
+                                <div class="exp-card-sub">医疗数据可视化 &nbsp;·&nbsp; 大模型应用 &nbsp;·&nbsp; Python Flask + MCP 技术栈</div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">体检数据可视化与智能问答系统</div>
+                                    <p class="exp-item-desc">面向体检中心开发的全栈数据看板系统，已在北京世纪坛医院、上海四院等机构落地使用。前端整合六大分析页签（监控、总览、人员、队列、基础、AI），支持当日检查室实时利用率、VIP 排队状态、患者行动轨迹全链路监控。接入基于 MCP 协议的大语言模型，支持多轮自然语言问答、一键导出运行报表、AI 生成分诊参数优化建议与 PPT 报告。后端 Python Flask 实现，前端支持行走距离矩阵编辑与 JSON 导入导出。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">Python Flask</span>
+                                        <span class="tech-tag">MCP 协议</span>
+                                        <span class="tech-tag">LLM 接口</span>
+                                        <span class="tech-tag">数据可视化</span>
+                                        <span class="tech-tag">多轮问答</span>
+                                        <span class="tech-tag">PPT 生成</span>
+                                        <span class="tech-tag">REST API</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">核磁检查预约数据可视化及 AI 参数优化系统</div>
+                                    <p class="exp-item-desc">为核磁检查科室开发的预约调度数据分析平台。支持当日与时间段总体指标看板、等待时间与设备利用率趋势分析、日/周/月/年环比统计；提供预约排班详情与历史开单的钻取查询。AI 能力模块支持后台定时计算参数优化建议、前台获取预测结果、管理员确认后通过工具调用应用建议；同时支持结合历史对话与业务数据的自然语言多轮问答。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">MCP 协议</span>
+                                        <span class="tech-tag">AI 工具调用</span>
+                                        <span class="tech-tag">CSV 导出</span>
+                                        <span class="tech-tag">Session 管理</span>
+                                        <span class="tech-tag">RBAC 权限</span>
+                                    </div>
+                                </div>
+
+                                <div class="exp-item">
+                                    <div class="exp-item-title">智能病区管理系统</div>
+                                    <p class="exp-item-desc">面向门诊病区的 AI 辅助管理系统。支持 AI 门诊预测（医生看诊时间预估与超阈值预警）、候诊区分布统计、双模式 AI 视频分析（候诊区人数监测与患者跌倒检测）；视频流支持本地视频流、摄像头实时流、浏览器上传帧三种方式；跌倒监测支持状态判定、警报列表、警报确认与统计；音量联动模块可按人数阈值自动计算播报建议音量。</p>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">AI 视频分析</span>
+                                        <span class="tech-tag">实时检测</span>
+                                        <span class="tech-tag">跌倒检测</span>
+                                        <span class="tech-tag">REST API</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 portfolio-item vis dev">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/ARLayout.jpg" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/arlayout.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                                <a href="document/arlayout.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">多目标重布局AR可视项目</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文已于CCF A类期刊、SCI一区TOP期刊TVCG发表；通讯作者、学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-ARLayout">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
+                        </div>
+
+                        <!-- Tab 3: 在校成果 -->
+                        <div class="exp-tab-pane" id="tab-school">
+                            <div class="exp-card">
+                                <div class="exp-card-header">
+                                    <h4 class="exp-card-title">在校期间取得的主要成果（精选）</h4>
+                                    <span class="exp-card-badge">2018 — 2025</span>
                                 </div>
+                                <div class="exp-card-sub">南京师范大学（本科）→ 南京理工大学（保送硕士）&nbsp;·&nbsp; 计算机科学与技术</div>
+                                <ul class="school-list">
+                                    <li>以队长身份参加 ACM-ICPC 国际大学生程序设计竞赛，获亚洲区域赛<strong>银牌</strong></li>
+                                    <li>本科与硕士阶段均获<strong>国家奖学金</strong>（连续两次，比例约 0.2%）</li>
+                                    <li>以<strong>第一作者</strong>发表 <strong>CCF A 类会议论文</strong>一篇（TVCG，IEEE Transactions on Visualization and Computer Graphics）</li>
+                                    <li>以<strong>第一作者</strong>发表 <strong>SCI 一区 TOP 期刊论文</strong>一篇（TIP，IEEE Transactions on Image Processing）</li>
+                                    <li>曾于<strong>阿里巴巴集团</strong>实习 Java 开发工程师，并顺利取得转正资格</li>
+                                </ul>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Sparse.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="https://github.com/yeshunlong/SALSTM">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 开源
-                                                </a>
-                                                <a href="document/tip.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">稀疏编码增强的医学图像分割</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文于CCF A类期刊、SCI一区TOP期刊TIP接收；通讯作者、学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-sparse">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Experience -->
+
+        <!-- Start Honors -->
+        <section class="section client-Testimonials" id="client" style="background:#f8faff;">
+            <div class="section-area">
+                <div class="section-content">
+                    <div class="container">
+                        <div class="title-block mx-auto">
+                            <div class="section_title mb-4 text-center">
+                                <h2><span>荣誉与奖项</span></h2>
+                                <p class="section_subtitle mx-auto">在校期间取得的部分荣誉</p>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/LSTMSA.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="https://github.com/yeshunlong/LSTMSA">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 开源
-                                                </a>
-                                                <a href="document/tim.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于LSTM与自注意力融合的医学图像分割</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文于CCF A类期刊、SCI一区TOP期刊TIM审稿中；通讯作者、学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-lstmsa">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="honor-grid">
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 竞赛</div>
+                                <p class="honor-card-title">ACM-ICPC 亚洲区域赛 银牌（队长）</p>
+                                <div class="honor-card-year">2021.06</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Pseudo.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="https://github.com/yeshunlong/PLBOpt">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 开源
-                                                </a>
-                                                <a href="document/jbhi.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于增强伪标签的半监督医学图像分割</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文于SCI一区期刊JBHI审稿中；通讯作者、学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-pseudo">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 竞赛</div>
+                                <p class="honor-card-title">ACM-ICPC 亚洲区域赛 铜牌（队长·多次）</p>
+                                <div class="honor-card-year">2020.09</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item vis">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/IGScript.jpg" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/igscript.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                                <a href="document/igscript.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">领域自定义可视化语法</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文以于CCF A类会议ACM CHI发表；学生二作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-IGScript">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 奖学金</div>
+                                <p class="honor-card-title">国家奖学金（本科）3/812</p>
+                                <div class="honor-card-year">2022.10</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/NoiseSeg.jpg" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="https://github.com/yeshunlong/NoiseSeg">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 开源
-                                                </a>
-                                                <a href="document/icaibd.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">自适应噪声生成模型</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文以于EI会议ICAIBD 2023发表；学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-NoiseSeg">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 奖学金</div>
+                                <p class="honor-card-title">国家奖学金（硕士）4/1086</p>
+                                <div class="honor-card-year">2023.10</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/NoiserSeg.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/bdicn.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">渐进式半监督息肉分割</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文以于EI会议BDICN 2024发表；学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-NoiserSeg">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 竞赛</div>
+                                <p class="honor-card-title">蓝桥杯 Python 研究生组 一等奖（江苏省第一·全国第四）</p>
+                                <div class="honor-card-year">2023.05</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/EAGLE.jpg" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/eagle.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于Attention的遥感图像VQA</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文以于CCF B类会议ACM CICLing发表；学生三作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-EAGLE">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 竞赛</div>
+                                <p class="honor-card-title">全国大学生计算机设计大赛 一等奖（国家级）</p>
+                                <div class="honor-card-year">2021.08</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item vis">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Leap.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/leapmotion.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于LeapMotion手势交互设备的三位迹线查询</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文Poster以于CCF A类会议IEEE VIS发表；学生一作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-leap">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 竞赛</div>
+                                <p class="honor-card-title">蓝桥杯 C++ A 组 二等奖（国家级）</p>
+                                <div class="honor-card-year">2021.05</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item vis">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Seismic.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/seismic.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于VR设备的交互式地质数据可视化</h5>
-                                            <br>
-                                            <p style="color: white;">对应科研论文Poster以于CCF A类会议IEEE VIS发表；学生三作。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-seismic">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 测评</div>
+                                <p class="honor-card-title">CCF-CSP 全国前 0.86%</p>
+                                <div class="honor-card-year">2021.11</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dev">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Wave.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="https://github.com/yeshunlong/disk_write">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 开源
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于QT的波形图数据可视化及磁盘快速写入</h5>
-                                            <br>
-                                            <p style="color: white;">对应项目已顺利结项。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-wave">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">省级 · 竞赛</div>
+                                <p class="honor-card-title">江苏省大学生程序设计竞赛 金牌（队长·多次）</p>
+                                <div class="honor-card-year">2021—2022</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item vis">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Surface.jpg" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/surface.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                                <a href="document/surface.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 论文
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">基于二次度量误差的曲面重构算法设计</h5>
-                                            <br>
-                                            <p style="color: white;">本科毕业设计，获得优秀毕业设计。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-surface">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">省级 · 竞赛</div>
+                                <p class="honor-card-title">华为软件精英挑战赛 二等奖（14/1041）</p>
+                                <div class="honor-card-year">2023.04</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Reader.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/reader.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">精分说书人</h5>
-                                            <br>
-                                            <p style="color: white;">普通的对话文本也能听出剧场感</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-reader">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">国家级 · 竞赛</div>
+                                <p class="honor-card-title">智算之道程序设计竞赛 三等奖</p>
+                                <div class="honor-card-year">2021.04</div>
                             </div>
-                            <div class="col-lg-12 portfolio-item dev">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Huawei.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/huawei.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">码头船舶货运调度</h5>
-                                            <br>
-                                            <p style="color: white;">华为软件精英挑战赛（江苏山东地区）二等奖。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-huawei">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Turing.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/turing.mp4">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 视频
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">迷宫战斗AI机器人</h5>
-                                            <br>
-                                            <p style="color: white;">图灵杯参赛作品</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-turing">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Polish.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <h5 class="mt-3 mb-0">器材抛光结果辨别系统</h5>
-                                            <br>
-                                            <p style="color: white;">广汽传祺工厂生产线上落地使用。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-polish">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 portfolio-item dev">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/Defect.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <h5 class="mt-3 mb-0">表面缺陷检测系统</h5>
-                                            <br>
-                                            <p style="color: white;">苹果中国代工厂生产线上落地使用。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-defect">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 portfolio-item dl">
-                                <div class="image-border">
-                                    <div class="portfolio-box">
-                                        <img src="images/portfolio/CVmart.png" class="img-fluid" alt="">
-                                        <div class="img-overlay text-center">
-                                            <div class="portfolio-icon">
-                                                <a href="document/cvmart.pdf">
-                                                    <i class="mdi mdi-magnify-plus-outline"></i> 文档
-                                                </a>
-                                            </div>
-                                            <h5 class="mt-3 mb-0">电动车头盔佩戴检测系统</h5>
-                                            <br>
-                                            <p style="color: white;">长三角算法大赛第五名（奖金一万元），芜湖市数据资源管理局落地使用。</p>
-                                            <br>
-                                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-cvmart">
-                                                查看详细介绍
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="honor-card">
+                                <div class="honor-card-level">学术成果</div>
+                                <p class="honor-card-title">第一作者 · CCF A 类会议 IEEE VIS + SCI 一区 IEEE TIP</p>
+                                <div class="honor-card-year">2023—2024</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--  End Portfolio -->
-        <!-- Start Testimonial -->
-        <section class="section client-Testimonials" id="client">
-            <div class="section-area">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="title-block mx-auto">
-                            <div class="section_title mb-4 text-center">
-                                <h2><span>荣誉</span></h2>
-                                <p class="section_subtitle mx-auto">来看看我获得过的荣誉</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="owl-carousel owl-theme client-slider">
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>银牌 （亚洲区域赛; 队长） ACM-ICPC国际大学生程序设计竞赛 (2021.06)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>铜牌 （亚洲区域赛; 队长; 多次获奖） ACM-ICPC国际大学生程序设计竞赛 (2020.09)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-half"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>一等奖 （国家级） 全国大学生计算机设计大赛 (2021.08)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-half"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>二等奖 （国家级） 蓝桥杯C++A组 (2021.05)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>一等奖 （国家级）（江苏省第一，全国第四） 蓝桥杯Python研究生组 (2023.05)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>金牌 (省级; 队长; 多次获得) 江苏省大学生程序设计竞赛 (2022.04)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>金牌 (省级; 队长; 多次获得) 江苏省大学生程序设计竞赛 (2021.04)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>国家级</h3></div>
-                                            <div class="text"><p>三等奖 (国家级) 智算之道程序设计竞赛 (2021.04)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-half"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>CCF-CSP</h3></div>
-                                            <div class="text"><p>全国前0.86% (2021.11)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>省级</h3></div>
-                                            <div class="text"><p>二等奖 (省级; 队长; 14/1041) 华为软件精英挑战赛 (2023.04)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>本科</h3></div>
-                                            <div class="text"><p>国家奖学金 （3/812） 全院每年仅三位学生 (2022.10)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="testi-content">
-                                            <div class="title"><h3>硕士</h3></div>
-                                            <div class="text"><p>国家奖学金 （4/1086） (2023.10)</p></div>
-                                            <div class="rating">
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                                <span class="mdi mdi-star-outline"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Testimonial -->
+        <!-- End Honors -->
+
         <!-- Start Contact -->
         <section class="section" id="contact">
             <div class="section-area">
@@ -2018,7 +819,7 @@ AI机器人需要根据自己的位置和周围的环境，
                         <div class="title-block mx-auto">
                             <div class="section_title mb-4 text-center">
                                 <h2><span>联系我</span></h2>
-                                <p class="section_subtitle mx-auto">你可以通过如下方式来联系我</p>
+                                <p class="section_subtitle mx-auto">欢迎通过以下方式与我取得联系</p>
                             </div>
                         </div>
                         <div class="row">
@@ -2029,8 +830,8 @@ AI机器人需要根据自己的位置和周围的环境，
                                     </div>
                                     <div class="content">
                                         <h4 class="title font-weight-bold">手机</h4>
-                                        <p class="text-muted">我的手机随时等待接听</p>
-                                        <a href="" class="h6 text-theme">+86 187-6168-4588</a>
+                                        <p class="text-muted">随时欢迎来电</p>
+                                        <a href="tel:+8618761684588" class="h6 text-theme">+86 187-6168-4588</a>
                                     </div>
                                 </div>
                             </div>
@@ -2042,7 +843,7 @@ AI机器人需要根据自己的位置和周围的环境，
                                     <div class="content">
                                         <h4 class="title font-weight-bold">邮箱</h4>
                                         <p class="text-muted">我会定期查看邮箱</p>
-                                        <a href="mailto:contact@example.com" class="h6 text-theme">yeshunlong@outlook.com</a>
+                                        <a href="mailto:yeshunlong@outlook.com" class="h6 text-theme">yeshunlong@outlook.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -2053,16 +854,15 @@ AI机器人需要根据自己的位置和周围的环境，
                                     </div>
                                     <div class="content">
                                         <h4 class="title font-weight-bold">地点</h4>
-                                        <p class="text-muted">江苏省<br /> 南京市 <br>江宁区</p>
+                                        <p class="text-muted">江苏省 · 南京市 · 建邺区</p>
                                         <a href="https://map.baidu.com/" class="h6 text-theme">在百度地图上找到我</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
-                            <div class="col-12 ">
-                                <p class="copy-right text-center">Copyright © 2024.</p>
+                            <div class="col-12">
+                                <p class="copy-right text-center">Copyright &copy; 2026 叶顺龙. All rights reserved.</p>
                             </div>
                         </div>
                     </div>
@@ -2070,7 +870,10 @@ AI机器人需要根据自己的位置和周围的环境，
             </div>
         </section>
         <!-- End Contact -->
+
     </div>
+    <!-- End Main Wrapper -->
+
     <!-- Javascript -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -2083,8 +886,37 @@ AI机器人需要根据自己的位置和周围的环境，
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/typed.min.js"></script>
-    <!-- Main Js   -->
+    <!-- Main Js -->
     <script src="js/main.js"></script>
-</body>
 
+    <script>
+        // ===== 经历 Tab 切换 =====
+        function switchExpTab(tabId) {
+            document.querySelectorAll('.exp-tab-pane').forEach(function(p) {
+                p.classList.remove('active');
+            });
+            document.querySelectorAll('.exp-tab-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // ===== 项目集筛选 =====
+        function filterPortfolio(cat, btn) {
+            document.querySelectorAll('.pf-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            document.querySelectorAll('.portfolio-grid-item').forEach(function(item) {
+                if (cat === 'all' || item.dataset.cat === cat) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+
+</body>
 </html>

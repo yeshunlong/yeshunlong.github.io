@@ -15,7 +15,7 @@ $(document).ready(function () {
     =========================================================================*/
     (function ($) {
         $(".typed").typed({
-            strings: ["软件开发工程师", "南京理工大学硕士在读学生", "医学影像相关算法研究生"],
+            strings: [".NET软件开发工程师", "AI全栈开发者", "南京理工大学计算机硕士"],
             stringsElement: null,
             typeSpeed: 60,
             startDelay: 1000,
