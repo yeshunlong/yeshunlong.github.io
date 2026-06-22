@@ -9,31 +9,6 @@
 $(document).ready(function () {
     "use strict";
 
-
-    /*=========================================================================
-      Typed JS
-    =========================================================================*/
-    (function ($) {
-        $(".typed").typed({
-            strings: [".NET软件开发工程师", "AI全栈开发者", "南京理工大学计算机硕士"],
-            stringsElement: null,
-            typeSpeed: 60,
-            startDelay: 1000,
-            backSpeed: 20,
-            backDelay: 1000,
-            loop: true,
-            loopCount: 5,
-            showCursor: true,
-            cursorChar: "|",
-            attr: null,
-            contentType: 'html',
-            callback: function () { },
-            preStringTyped: function () { },
-            onStringTyped: function () { },
-            resetCallback: function () { }
-        });
-    })(jQuery);
-
     /*=========================================================================
      Counter JS
    =========================================================================*/

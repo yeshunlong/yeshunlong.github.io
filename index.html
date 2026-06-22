@@ -1,29 +1,19 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="叶顺龙的个人主页 - .NET软件开发工程师 / AI全栈开发">
-    <meta name="keywords" content="叶顺龙, .NET, C#, AI, 全栈开发, 软件工程师, 慧咨环球, WiseTech Global">
-    <meta name="author" content="叶顺龙">
-    <title>叶顺龙的个人主页</title>
-
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shunlong Ye · Resume</title>
+    <!-- Bootstrap, Icons, Fonts -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Material Icon -->
     <link rel="stylesheet" href="css/materialdesignicons.min.css">
-    <!-- Magnific Popup -->
     <link rel="stylesheet" href="css/magnific-popup.css" />
-    <!-- Carousel Slider -->
     <link rel="stylesheet" href="css/owl.carousel.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-
     <style>
-        /* ===== 经历 Tab 导航 ===== */
+        /* ===== 样式保持与原版一致 ===== */
         .exp-tab-nav {
             display: flex;
             gap: 10px;
@@ -63,7 +53,6 @@
             display: block;
         }
 
-        /* ===== 经历卡片 ===== */
         .exp-card {
             background: #f1f3f6;
             border-radius: 1.25rem;
@@ -171,203 +160,6 @@
             flex-shrink: 0;
         }
 
-        /* ===== 项目集筛选按钮（复用 .filters 风格） ===== */
-        .portfolio-filter-new {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .pf-btn {
-            display: inline-block;
-            font-size: 14px;
-            line-height: 30px;
-            padding: 5px 20px;
-            color: #212121;
-            border-radius: 30px;
-            border: none;
-            background: #f1f3f6;
-            box-shadow: 3px 3px 3px #e1e1e1, -3px -3px 3px #fafafa;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 300;
-            letter-spacing: 1px;
-            transition: all 0.25s;
-        }
-
-        .pf-btn.active,
-        .pf-btn:hover {
-            background: #FF9E2B;
-            color: #fff;
-        }
-
-        /* ===== 项目卡片（neumorphism 风格） ===== */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        @media (max-width: 992px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .exp-card {
-                padding: 20px 18px;
-            }
-        }
-
-        .portfolio-grid-item {
-            display: block;
-        }
-
-        .portfolio-grid-item.hidden {
-            display: none;
-        }
-
-        .portfolio-card {
-            position: relative;
-            border-radius: 1.25rem;
-            overflow: hidden;
-            background: #f1f3f6;
-            box-shadow: 3px 3px 3px #dfdfdf, -3px -3px 3px #fafafa;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: default;
-            height: 100%;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 6px 6px 16px #d0d0d0, -6px -6px 16px #ffffff;
-        }
-
-        .portfolio-card-img-placeholder {
-            width: 100%;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #e8eaf0;
-        }
-
-        .portfolio-card-img-placeholder i {
-            font-size: 52px;
-            color: #ccc;
-        }
-
-        .portfolio-card-body {
-            padding: 18px 20px 16px;
-        }
-
-        .portfolio-card-cat {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #FF9E2B;
-            margin-bottom: 6px;
-        }
-
-        .portfolio-card-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: #333743;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-
-        .portfolio-card-desc {
-            font-size: 13px;
-            color: #777;
-            line-height: 1.6;
-        }
-
-        /* ===== 悬浮详情层 ===== */
-        .portfolio-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(40, 44, 60, 0.94);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 22px 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 1.25rem;
-        }
-
-        .portfolio-card:hover .portfolio-card-overlay {
-            opacity: 1;
-        }
-
-        .overlay-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .overlay-detail {
-            font-size: 13px;
-            color: #d0d0d8;
-            line-height: 1.7;
-            margin-bottom: 12px;
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .overlay-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 12px;
-        }
-
-        .overlay-tag {
-            background: rgba(255, 158, 43, 0.25);
-            color: #FFD49E;
-            border-radius: 6px;
-            padding: 2px 9px;
-            font-size: 11px;
-            letter-spacing: 0.5px;
-        }
-
-        .overlay-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .overlay-link {
-            color: #FFD49E;
-            font-size: 12px;
-            text-decoration: none;
-            border: 1px solid rgba(255, 212, 158, 0.4);
-            border-radius: 4px;
-            padding: 3px 10px;
-            transition: background 0.2s;
-        }
-
-        .overlay-link:hover {
-            background: rgba(255, 158, 43, 0.3);
-            color: #fff;
-        }
-
-        .overlay-internal-label {
-            color: #aaa;
-            font-size: 12px;
-            font-style: italic;
-        }
-
-        /* ===== 荣誉卡片（neumorphism 风格） ===== */
         .honor-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -375,13 +167,13 @@
             margin-top: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width:768px) {
             .honor-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width:480px) {
             .honor-grid {
                 grid-template-columns: 1fr;
             }
@@ -422,15 +214,250 @@
             margin-top: 8px;
         }
 
-        /* ===== 响应式调整 ===== */
         .informative-txt li {
             font-size: 14px;
+        }
+
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: #FF9E2B;
+            border: none;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.2s;
+        }
+
+        .lang-toggle:hover {
+            background: #e88a1e;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 576px) {
+            .exp-card {
+                padding: 20px 18px;
+            }
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width:992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width:576px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .portfolio-grid-item.hidden {
+            display: none;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: #f1f3f6;
+            box-shadow: 3px 3px 3px #dfdfdf, -3px -3px 3px #fafafa;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 6px 6px 16px #d0d0d0, -6px -6px 16px #ffffff;
+        }
+
+        .portfolio-card-img-placeholder {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8eaf0;
+        }
+
+        .portfolio-card-img-placeholder i {
+            font-size: 52px;
+            color: #ccc;
+        }
+
+        .portfolio-card-body {
+            padding: 18px 20px 16px;
+        }
+
+        .portfolio-card-cat {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #FF9E2B;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-card-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333743;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-card-desc {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .portfolio-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(40, 44, 60, 0.94);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 22px 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 1.25rem;
+        }
+
+        .portfolio-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+
+        .overlay-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .overlay-detail {
+            font-size: 13px;
+            color: #d0d0d8;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .overlay-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 12px;
+        }
+
+        .overlay-tag {
+            background: rgba(255, 158, 43, 0.25);
+            color: #FFD49E;
+            border-radius: 6px;
+            padding: 2px 9px;
+            font-size: 11px;
+        }
+
+        .overlay-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .overlay-link {
+            color: #FFD49E;
+            font-size: 12px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 212, 158, 0.4);
+            border-radius: 4px;
+            padding: 3px 10px;
+            transition: 0.2s;
+        }
+
+        .overlay-link:hover {
+            background: rgba(255, 158, 43, 0.3);
+            color: #fff;
+        }
+
+        .overlay-internal-label {
+            color: #aaa;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .pf-btn {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 30px;
+            padding: 5px 20px;
+            color: #212121;
+            border-radius: 30px;
+            border: none;
+            background: #f1f3f6;
+            box-shadow: 3px 3px 3px #e1e1e1, -3px -3px 3px #fafafa;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: 0.25s;
+        }
+
+        .pf-btn.active,
+        .pf-btn:hover {
+            background: #FF9E2B;
+            color: #fff;
+        }
+
+        .portfolio-filter-new {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* ===== 页面切换控制 ===== */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* 导航菜单高亮 */
+        .menu-list .list-group-item a.active {
+            color: #FF9E2B !important;
+        }
+
+        .menu-list .list-group-item a {
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .menu-list .list-group-item a:hover {
+            color: #FF9E2B;
         }
     </style>
 </head>
 
 <body>
-    <!-- Start Preloader -->
+
+    <!-- LANGUAGE TOGGLE BUTTON -->
+    <button class="lang-toggle" id="langToggle" data-lang="en">中文</button>
+
+    <!-- Preloader -->
     <div class="spinner-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
@@ -438,56 +465,27 @@
             <div class="bounce3"></div>
         </div>
     </div>
-    <!-- End preloader -->
 
     <div id="main-wrapper">
-        <!-- Start Navbar -->
-        <div class="menu-toggler">
-            <span><i class="mdi mdi-menu"></i></span>
-        </div>
+        <!-- Navbar -->
+        <div class="menu-toggler"><span><i class="mdi mdi-menu"></i></span></div>
         <header>
             <div class="header-navbar h-100">
                 <a class="navbar-brand" href="#"><b>Y</b><span>Shunlong</span></a>
                 <nav class="navbar menu-list">
                     <ul class="list-group text-center" id="menu">
-                        <li class="list-group-item">
-                            <a class="active" href="#home">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-home-outline"></i></span>
-                                <span>首页</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#aboutus">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-account-outline"></i></span>
-                                <span>自述</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#experience">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-briefcase-outline"></i></span>
-                                <span>经历</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#client">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-trophy-outline"></i></span>
-                                <span>荣誉</span>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#contact">
-                                <span class="menu-icon mx-auto"><i class="mdi mdi-chat-processing-outline"></i></span>
-                                <span>联系我</span>
-                            </a>
-                        </li>
+                        <li class="list-group-item"><a class="active" href="#home" data-section="home"><span class="menu-icon mx-auto"><i class="mdi mdi-home-outline"></i></span><span data-i18n="nav.home">Home</span></a></li>
+                        <li class="list-group-item"><a href="#aboutus" data-section="aboutus"><span class="menu-icon mx-auto"><i class="mdi mdi-account-outline"></i></span><span data-i18n="nav.about">About</span></a></li>
+                        <li class="list-group-item"><a href="#experience" data-section="experience"><span class="menu-icon mx-auto"><i class="mdi mdi-briefcase-outline"></i></span><span data-i18n="nav.experience">Experience</span></a></li>
+                        <li class="list-group-item"><a href="#client" data-section="client"><span class="menu-icon mx-auto"><i class="mdi mdi-trophy-outline"></i></span><span data-i18n="nav.honors">Honors</span></a></li>
+                        <li class="list-group-item"><a href="#contact" data-section="contact"><span class="menu-icon mx-auto"><i class="mdi mdi-chat-processing-outline"></i></span><span data-i18n="nav.contact">Contact</span></a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        <!-- End Navbar -->
 
-        <!-- Start Home -->
-        <section class="home-bg section active" id="home">
+        <!-- HOME -->
+        <section class="home-bg section active" id="home" data-section="home">
             <div id="particles-js"></div>
             <div class="section-area">
                 <div class="section-content">
@@ -497,15 +495,15 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-12">
                                         <div class="hero-text text-center">
-                                            <div class="wel-txt">你好</div>
-                                            <h1>我是一名&nbsp;<span class="typed"></span></h1>
+                                            <div class="wel-txt" data-i18n="home.hello">Hello</div>
+                                            <h1 data-i18n="home.iAm">I am a&nbsp;<span class="typed"></span></h1>
                                         </div>
                                         <ul class="informative-txt d-flex justify-content-center align-items-center flex-wrap">
-                                            <li>.NET 软件开发工程师</li>
+                                            <li data-i18n="home.tag1">.NET Software Engineer</li>
                                             <li><i class="mdi mdi-circle mdi-10px ml-3 mr-3"></i></li>
-                                            <li>AI 全栈开发者</li>
+                                            <li data-i18n="home.tag2">AI Full-Stack Developer</li>
                                             <li><i class="mdi mdi-circle mdi-10px ml-3 mr-3"></i></li>
-                                            <li>南京理工大学计算机硕士</li>
+                                            <li data-i18n="home.tag3">M.Sc. in CS, NJUST</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -514,463 +512,344 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- End Home -->
-
-        <!-- Start About-Us -->
-        <section class="section bg-light line-vector" id="aboutus">
-            <div class="section-area">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="title-block mx-auto">
-                            <div class="section_title mb-4 text-center">
-                                <h2><span>关于我</span></h2>
-                                <p class="section_subtitle mx-auto">软件开发工程师，在读期间从事计算机视觉方向的学术研究，毕业后加入 WiseTech Global 从事 .NET 企业级软件开发，并在业余时间持续进行 AI 全栈应用的探索。</p>
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-md-8 col-sm-12">
-                                <div class="about-text-block">
-                                    <div class="about-content">
-                                        <h4>简单认识一下我</h4>
-                                        <div class="text">我目前在 <strong>慧咨环球（WiseTech Global）</strong> 担任 .NET 软件开发工程师（2024年11月至今），主要使用 C# 参与企业级物流软件 CargoWise 的核心组件维护与迭代，负责第三方依赖升级、线程安全修复、数据库性能优化及 UI 框架适配等工作。</div>
-                                        <div class="text">与此同时，我在业余时间以 <strong>AI 全栈开发</strong>方式持续输出，主要面向医疗机构，使用 MCP 协议 + 大语言模型接口，落地了多个体检与医疗数据可视化及智能问答系统，已在北京世纪坛医院、上海四院等机构投入使用。</div>
-                                        <div class="text">在校期间，我以 <strong>学生一作</strong>身份发表 CCF A 类会议论文及 SCI 一区期刊论文各一篇（且目前仍在进行科研工作），曾获本科和硕士两次<strong>国家奖学金</strong>，并以队长身份在 ACM-ICPC 中斩获<strong>银牌</strong>。</div>
-                                        <div class="text">查看我的PDF <a href="document/resume.pdf">简历</a>（中文版，使用 LaTeX 编写）</div>
-                                        <div class="text">查看我的PDF <a href="document/resume_bilingual.pdf">简历</a>（英文版，使用 LaTeX 编写）</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-8 mx-auto">
-                                <div class="about-img-box">
-                                    <div class="image">
-                                        <img src="images/aboutus/avatar.jpg" class="img-fluid" alt="叶顺龙">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Counter Block -->
-                        <div class="row">
-                            <div class="col-lg-3 col-6">
-                                <div class="counter-block">
-                                    <span class="mdi mdi-briefcase-outline"></span>
-                                    <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">23</em>+</h3>
-                                        <p class="mb-0">工作月数（含实习）</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="counter-block">
-                                    <span class="mdi mdi-code-tags"></span>
-                                    <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">3</em>+</h3>
-                                        <p class="mb-0">熟练掌握的编程语言</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="counter-block">
-                                    <span class="mdi mdi-hospital-building"></span>
-                                    <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">3</em></h3>
-                                        <p class="mb-0">AI系统落地医疗机构</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="counter-block">
-                                    <span class="mdi mdi-trophy-outline"></span>
-                                    <div class="details">
-                                        <h3 class="mb-0 mt-0 number"><em class="count">9</em>+</h3>
-                                        <p class="mb-0">国家级以上荣誉</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Counter Block -->
-
-                        <!-- Expert Block -->
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="expert-box text-center">
-                                    <img src="images/aboutus/intellijidea.svg" class="img-fluid" alt="软件开发" />
-                                    <h3>.NET 软件开发工程师</h3>
-                                    <p class="mb-0">使用 C# 参与大型企业级物流平台 CargoWise 的核心组件迭代维护</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="expert-box text-center">
-                                    <img src="images/aboutus/semanticscholar.svg" class="img-fluid" alt="AI开发" />
-                                    <h3>AI 全栈开发</h3>
-                                    <p class="mb-0">基于 MCP + LLM 开发医疗数据可视化与智能问答系统</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="expert-box text-center">
-                                    <img src="images/aboutus/pytorch.svg" class="img-fluid" alt="学术研究" />
-                                    <h3>计算机视觉研究</h3>
-                                    <p class="mb-0">研究方向为医学图像分割，以一作身份发表 CCF A 类及 SCI 一区期刊论文</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Expert Block -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End About-Us -->
-
-        <!-- Start Experience -->
-        <section class="section" id="experience">
-            <div class="section-area">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="title-block mx-auto">
-                            <div class="section_title mb-4 text-center">
-                                <h2><span>工作与经历</span></h2>
-                                <p class="section_subtitle mx-auto">工作经历、副业项目与在校成果</p>
-                            </div>
-                        </div>
-
-                        <!-- Tab Nav -->
-                        <div class="exp-tab-nav">
-                            <button class="exp-tab-btn active" onclick="switchExpTab('tab-core')">① .NET 软件开发（慧咨环球）</button>
-                            <button class="exp-tab-btn" onclick="switchExpTab('tab-ai')">② AI 全栈开发（副业）</button>
-                            <button class="exp-tab-btn" onclick="switchExpTab('tab-school')">③ 在校成果（精选）</button>
-                        </div>
-
-                        <!-- Tab 1: 慧咨环球 -->
-                        <div class="exp-tab-pane active" id="tab-core">
-                            <div class="exp-card">
-                                <div class="exp-card-header">
-                                    <h4 class="exp-card-title">慧咨环球 / WiseTech Global</h4>
-                                    <span class="exp-card-badge">2024.11 — 2026.05</span>
-                                </div>
-                                <div class="exp-card-sub">System Components - CORE &nbsp;·&nbsp; .NET 软件开发工程师 &nbsp;·&nbsp; 主要语言：C#</div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">核心组件升级与兼容性维护</div>
-                                    <p class="exp-item-desc">负责邮件处理组件 MailKit 及相关第三方依赖的跨版本升级（v4.11.0 → v4.14.1）。在 .NET Framework 4.8 与 .NET Standard 2.0 混合构建环境中，解决了 System.Buffers / System.Memory 等库的菱形依赖冲突，同时补充了 NTLM 认证握手探测逻辑，使新版组件向下兼容旧版 Exchange Server。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">C# / .NET</span>
-                                        <span class="tech-tag">MailKit / MimeKit</span>
-                                        <span class="tech-tag">Paket / NuGet</span>
-                                        <span class="tech-tag">NTLM 认证</span>
-                                        <span class="tech-tag">依赖管理</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">多线程并发排查与内存泄漏修复</div>
-                                    <p class="exp-item-desc">调查并修复业务对象工厂 BusinessObjectFactory 中的 ThreadSentry 跨线程访问异常，定位根因为 特定Service 错误创建了额外的 Factory 实例。同步修复了 KTextBox 控件事件反注册中误用导致的 GDI 句柄泄漏（120+ 个未释放 Factory 对象），并通过 WeakReference 单元测试验证内存释放行为。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">ThreadSentry</span>
-                                        <span class="tech-tag">GDI 句柄</span>
-                                        <span class="tech-tag">WeakReference</span>
-                                        <span class="tech-tag">Memory Profiler</span>
-                                        <span class="tech-tag">多线程</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">数据库查询与报表性能优化</div>
-                                    <p class="exp-item-desc">参与重构审计日志报表加载超时问题：将全局事件查询迁移至专用审计数据库，实现读写分离；将报表数据获取逻辑从扫描 EDT 事件改写为基于 ATC/DTC 事件，大幅减少无效日志扫描量。另对数据库表的宽聚集索引进行降级重构，减少页分裂与 B-Tree 维护成本。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">SQL Server</span>
-                                        <span class="tech-tag">索引优化</span>
-                                        <span class="tech-tag">读写分离</span>
-                                        <span class="tech-tag">Event Sourcing</span>
-                                        <span class="tech-tag">Extended Events</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">系统安全与权限逻辑加固</div>
-                                    <p class="exp-item-desc">修复 NXML 导出功能的权限漏洞，采用策略模式设计接口，解耦安全检查逻辑与业务逻辑。修复 Scheduled Reports 模块中通过权限组合（"复制+删除"）间接绕过他人数据保护的逻辑漏洞。同时修复已知 CVE 漏洞。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">权限控制</span>
-                                        <span class="tech-tag">策略模式</span>
-                                        <span class="tech-tag">CVE 修复</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">WinForms → Web 框架适配（Blazor）</div>
-                                    <p class="exp-item-desc">参与将传统 WinForms 桌面应用迁移至 Blazor Web 框架的适配工作。修复异步竞态条件（ContextMenu.UpdateAsync 在对象销毁后仍被调用）、鼠标事件模拟（用 MouseEnter/Leave 替代高频 MouseMove）、光标位置同步等问题；修复流式 I/O 超时（RemoteJSDataStream 生命周期管理）；在控件基类中补全相应事件的递归触发逻辑。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">WinForms</span>
-                                        <span class="tech-tag">Blazor</span>
-                                        <span class="tech-tag">异步编程</span>
-                                        <span class="tech-tag">事件驱动</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">UI 自动化测试重构</div>
-                                    <p class="exp-item-desc">系统性重构 Playwright UI 端到端测试用例，将旧版 ElementHandle API 全面迁移至现代 Locator API（内置自动等待）；移除代码中大量硬编码等待，改用基于状态断言的 WaitFor 机制，显著降低了 CI/CD 流水线上的随机超时故障率。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">Playwright</span>
-                                        <span class="tech-tag">E2E 测试</span>
-                                        <span class="tech-tag">Locator API</span>
-                                        <span class="tech-tag">CI/CD</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">韩国电子发票合规性开发</div>
-                                    <p class="exp-item-desc">为满足韩国国税厅（NTS）最新合规要求，重构电子发票税务类型映射逻辑，实现更细粒度的税务分类规则引擎；同步对大量遗留类按国家代码标准进行重构，消除缩写歧义。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">合规开发</span>
-                                        <span class="tech-tag">XML / e-Invoicing</span>
-                                        <span class="tech-tag">规则引擎</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tab 2: AI 全栈 -->
-                        <div class="exp-tab-pane" id="tab-ai">
-                            <div class="exp-card">
-                                <div class="exp-card-header">
-                                    <h4 class="exp-card-title">AI 全栈开发（副业）</h4>
-                                    <span class="exp-card-badge">2025.05 — 至今</span>
-                                </div>
-                                <div class="exp-card-sub">医疗数据可视化 &nbsp;·&nbsp; 大模型应用 &nbsp;·&nbsp;</div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">体检数据可视化与智能问答系统</div>
-                                    <p class="exp-item-desc">面向体检中心开发的全栈数据看板系统，已在北京世纪坛医院、上海四院等机构落地使用。前端整合六大分析页签（监控、总览、人员、队列、基础、AI），支持当日检查室实时利用率、VIP 排队状态、患者行动轨迹全链路监控。接入基于 MCP 协议的大语言模型，支持多轮自然语言问答、一键导出运行报表、AI 生成分诊参数优化建议与 PPT 报告。后端 Python Flask 实现，前端支持行走距离矩阵编辑与 JSON 导入导出。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">Python Flask</span>
-                                        <span class="tech-tag">MCP 协议</span>
-                                        <span class="tech-tag">LLM 接口</span>
-                                        <span class="tech-tag">数据可视化</span>
-                                        <span class="tech-tag">多轮问答</span>
-                                        <span class="tech-tag">PPT 生成</span>
-                                        <span class="tech-tag">REST API</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">核磁检查预约数据可视化及 AI 参数优化系统</div>
-                                    <p class="exp-item-desc">为核磁检查科室开发的预约调度数据分析平台。支持当日与时间段总体指标看板、等待时间与设备利用率趋势分析、日/周/月/年环比统计；提供预约排班详情与历史开单的钻取查询。AI 能力模块支持后台定时计算参数优化建议、前台获取预测结果、管理员确认后通过工具调用应用建议；同时支持结合历史对话与业务数据的自然语言多轮问答。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">MCP 协议</span>
-                                        <span class="tech-tag">AI 工具调用</span>
-                                        <span class="tech-tag">CSV 导出</span>
-                                        <span class="tech-tag">Session 管理</span>
-                                        <span class="tech-tag">RBAC 权限</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">智能病区管理系统</div>
-                                    <p class="exp-item-desc">面向门诊病区的 AI 辅助管理系统。支持 AI 门诊预测（医生看诊时间预估与超阈值预警）、候诊区分布统计、双模式 AI 视频分析（候诊区人数监测与患者跌倒检测）；视频流支持本地视频流、摄像头实时流、浏览器上传帧三种方式；跌倒监测支持状态判定、警报列表、警报确认与统计；音量联动模块可按人数阈值自动计算播报建议音量。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">AI 视频分析</span>
-                                        <span class="tech-tag">实时检测</span>
-                                        <span class="tech-tag">跌倒检测</span>
-                                        <span class="tech-tag">REST API</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">智能业务生成系统</div>
-                                    <p class="exp-item-desc">基于 NodeJS 的后台系统，连接医院 SQL Server 数据库并集成大模型能力。用户在前端对话界面输入需求后，系统自动识别需求类型（报表、问卷、数据处理、数据分析、脱敏导出、摘要生成等），从预定义 SQL 模板库中匹配并调用合适的 SQL 组合执行查询，将返回数据动态渲染为可访问的 HTML/JS Web 应用并部署至独立 URL 路径。系统提供已生成应用的全生命周期管理，支持列表展示、启停控制、删除及访问 URL 查看。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">NodeJS</span>
-                                        <span class="tech-tag">SQL Server</span>
-                                        <span class="tech-tag">大模型集成</span>
-                                        <span class="tech-tag">SQL 模板匹配</span>
-                                        <span class="tech-tag">动态页面生成</span>
-                                        <span class="tech-tag">应用生命周期管理</span>
-                                        <span class="tech-tag">REST API</span>
-                                    </div>
-                                </div>
-
-                                <div class="exp-item">
-                                    <div class="exp-item-title">自动接口测试系统</div>
-                                    <p class="exp-item-desc">基于 NextJS 构建的门诊系统自动化功能测试平台。用户输入初步需求后，系统自动生成覆盖多场景的测试用例，并自动执行存储过程级别的接口测试，最终输出完整测试报告。支持测试用例的自动生成与执行闭环，有效提升门诊系统基础版本的回归测试效率与接口验证覆盖率。</p>
-                                    <div class="tech-tags">
-                                        <span class="tech-tag">NextJS</span>
-                                        <span class="tech-tag">自动化测试</span>
-                                        <span class="tech-tag">测试用例自动生成</span>
-                                        <span class="tech-tag">存储过程测试</span>
-                                        <span class="tech-tag">测试报告输出</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tab 3: 在校成果 -->
-                        <div class="exp-tab-pane" id="tab-school">
-                            <div class="exp-card">
-                                <div class="exp-card-header">
-                                    <h4 class="exp-card-title">在校期间取得的主要成果（精选）</h4>
-                                    <span class="exp-card-badge">2018 — 2025</span>
-                                </div>
-                                <div class="exp-card-sub">南京师范大学（本科）→ 南京理工大学（保送硕士）&nbsp;·&nbsp; 计算机科学与技术</div>
-                                <ul class="school-list">
-                                    <li>以队长身份参加 ACM-ICPC 国际大学生程序设计竞赛，获亚洲区域赛<strong>银牌</strong></li>
-                                    <li>本科与硕士阶段均获<strong>国家奖学金</strong>（连续两次，比例约 0.2%）</li>
-                                    <li>以<strong>第一作者</strong>发表 <strong>CCF A 类会议论文</strong>一篇（TVCG，IEEE Transactions on Visualization and Computer Graphics）</li>
-                                    <li>以<strong>第一作者</strong>发表 <strong>SCI 一区 TOP 期刊（TIP）论文</strong>一篇（科研经历毕业后未中断，目前仍在进行SCI一区期刊（TCSVT）论文的修改工作）</li>
-                                    <li>曾于<strong>阿里巴巴集团</strong>实习 Java 开发工程师，并顺利取得转正资格</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Experience -->
-
-        <!-- Start Honors -->
-        <section class="section client-Testimonials" id="client" style="background:#f8faff;">
-            <div class="section-area">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="title-block mx-auto">
-                            <div class="section_title mb-4 text-center">
-                                <h2><span>荣誉与奖项</span></h2>
-                                <p class="section_subtitle mx-auto">在校期间取得的部分荣誉</p>
-                            </div>
-                        </div>
-                        <div class="honor-grid">
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 竞赛</div>
-                                <p class="honor-card-title">ACM-ICPC 亚洲区域赛 银牌（队长）</p>
-                                <div class="honor-card-year">2021.06</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 竞赛</div>
-                                <p class="honor-card-title">ACM-ICPC 亚洲区域赛 铜牌（队长·多次）</p>
-                                <div class="honor-card-year">2020.09</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 奖学金</div>
-                                <p class="honor-card-title">国家奖学金（本科）3/812</p>
-                                <div class="honor-card-year">2022.10</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 奖学金</div>
-                                <p class="honor-card-title">国家奖学金（硕士）4/1086</p>
-                                <div class="honor-card-year">2023.10</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 竞赛</div>
-                                <p class="honor-card-title">蓝桥杯 Python 研究生组 一等奖（江苏省第一·全国第四）</p>
-                                <div class="honor-card-year">2023.05</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 竞赛</div>
-                                <p class="honor-card-title">全国大学生计算机设计大赛 一等奖（国家级）</p>
-                                <div class="honor-card-year">2021.08</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 竞赛</div>
-                                <p class="honor-card-title">蓝桥杯 C++ A 组 二等奖（国家级）</p>
-                                <div class="honor-card-year">2021.05</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 测评</div>
-                                <p class="honor-card-title">CCF-CSP 全国前 0.86%</p>
-                                <div class="honor-card-year">2021.11</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">省级 · 竞赛</div>
-                                <p class="honor-card-title">江苏省大学生程序设计竞赛 金牌（队长·多次）</p>
-                                <div class="honor-card-year">2021—2022</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">省级 · 竞赛</div>
-                                <p class="honor-card-title">华为软件精英挑战赛 二等奖（14/1041）</p>
-                                <div class="honor-card-year">2023.04</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">国家级 · 竞赛</div>
-                                <p class="honor-card-title">智算之道程序设计竞赛 三等奖</p>
-                                <div class="honor-card-year">2021.04</div>
-                            </div>
-                            <div class="honor-card">
-                                <div class="honor-card-level">学术成果</div>
-                                <p class="honor-card-title">第一作者 · CCF A 类会议 IEEE VIS + SCI 一区 IEEE TIP</p>
-                                <div class="honor-card-year">2023—2024</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Honors -->
-
-        <!-- Start Contact -->
-        <section class="section" id="contact">
-            <div class="section-area">
-                <div class="section-content">
-                    <div class="container">
-                        <div class="title-block mx-auto">
-                            <div class="section_title mb-4 text-center">
-                                <h2><span>联系我</span></h2>
-                                <p class="section_subtitle mx-auto">欢迎通过以下方式与我取得联系</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-cellphone"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">手机</h4>
-                                        <p class="text-muted">随时欢迎来电</p>
-                                        <a href="tel:+8618761684588" class="h6 text-theme">+86 187-6168-4588</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-email"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">邮箱</h4>
-                                        <p class="text-muted">我会定期查看邮箱</p>
-                                        <a href="mailto:yeshunlong@outlook.com" class="h6 text-theme">yeshunlong@outlook.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="contact-info text-center">
-                                    <div class="icon">
-                                        <i class="mdi mdi-map-marker-radius-outline"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title font-weight-bold">地点</h4>
-                                        <p class="text-muted">江苏省 · 南京市 · 建邺区</p>
-                                        <a href="https://map.baidu.com/" class="h6 text-theme">在百度地图上找到我</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="copy-right text-center">Copyright &copy; 2026 叶顺龙. All rights reserved.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Contact -->
-
     </div>
-    <!-- End Main Wrapper -->
+    </section>
 
-    <!-- Javascript -->
+    <!-- ABOUT -->
+    <section class="section bg-light line-vector" id="aboutus" data-section="aboutus">
+        <div class="section-area">
+            <div class="section-content">
+                <div class="container">
+                    <div class="title-block mx-auto">
+                        <div class="section_title mb-4 text-center">
+                            <h2><span data-i18n="about.title">About Me</span></h2>
+                            <p class="section_subtitle mx-auto" data-i18n="about.sub">Software engineer with research background in computer vision, now building enterprise .NET solutions and AI-powered medical applications.</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-8 col-sm-12">
+                            <div class="about-text-block">
+                                <div class="about-content">
+                                    <h4 data-i18n="about.greeting">Get to know me</h4>
+                                    <div class="text" data-i18n="about.p1">I worked at <strong>WiseTech Global</strong> (the largest SaaS company in freight forwarding) as a .NET Software Engineer (Nov 2024 – Jun 2026), maintaining core components of CargoWise in C#, handling dependency upgrades, thread-safety fixes, DB performance, and UI framework adaptation.</div>
+                                    <div class="text" data-i18n="about.p2">In parallel, I build AI full-stack solutions for medical institutions using MCP + LLM, delivering data visualization and Q&A systems deployed at Beijing Shijitan Hospital, Shanghai Fourth Hospital, and more.</div>
+                                    <div class="text" data-i18n="about.p3">During my studies, I published first-author papers at CCF-A conference (TVCG) and SCI Q1 journal (TIP), and I'm currently revising a TCSVT paper. I won National Scholarship twice, and earned ACM-ICPC silver medal as team captain.</div>
+                                    <div class="text"><span data-i18n="about.resumeCN">View my PDF resume (Chinese, LaTeX)</span> <a href="document/resume.pdf" data-i18n="about.resumeCNLink">here</a></div>
+                                    <div class="text"><span data-i18n="about.resumeEN">View my PDF resume (English, LaTeX)</span> <a href="document/resume_en.pdf" data-i18n="about.resumeENLink">here</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-8 mx-auto">
+                            <div class="about-img-box">
+                                <div class="image"><img src="images/aboutus/avatar.jpg" class="img-fluid" alt="Shunlong Ye"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- counters -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <div class="counter-block"><span class="mdi mdi-briefcase-outline"></span>
+                                <div class="details">
+                                    <h3 class="mb-0 mt-0 number"><em class="count">23</em>+</h3>
+                                    <p class="mb-0" data-i18n="about.counter1">months worked</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="counter-block"><span class="mdi mdi-code-tags"></span>
+                                <div class="details">
+                                    <h3 class="mb-0 mt-0 number"><em class="count">3</em>+</h3>
+                                    <p class="mb-0" data-i18n="about.counter2">languages</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="counter-block"><span class="mdi mdi-hospital-building"></span>
+                                <div class="details">
+                                    <h3 class="mb-0 mt-0 number"><em class="count">3</em></h3>
+                                    <p class="mb-0" data-i18n="about.counter3">hospitals deployed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="counter-block"><span class="mdi mdi-trophy-outline"></span>
+                                <div class="details">
+                                    <h3 class="mb-0 mt-0 number"><em class="count">9</em>+</h3>
+                                    <p class="mb-0" data-i18n="about.counter4">national awards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- expert boxes -->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="expert-box text-center"><img src="images/aboutus/intellijidea.svg" class="img-fluid" alt="dev">
+                                <h3 data-i18n="about.exp1title">.NET Software Engineer</h3>
+                                <p class="mb-0" data-i18n="about.exp1desc">C# / enterprise logistics platform</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="expert-box text-center"><img src="images/aboutus/semanticscholar.svg" class="img-fluid" alt="ai">
+                                <h3 data-i18n="about.exp2title">AI Full-Stack</h3>
+                                <p class="mb-0" data-i18n="about.exp2desc">MCP + LLM for medical Q&A</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="expert-box text-center"><img src="images/aboutus/pytorch.svg" class="img-fluid" alt="research">
+                                <h3 data-i18n="about.exp3title">Computer Vision</h3>
+                                <p class="mb-0" data-i18n="about.exp3desc">Medical image segmentation, CCF-A / SCI Q1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" data-section="experience">
+        <div class="section-area">
+            <div class="section-content">
+                <div class="container">
+                    <div class="title-block mx-auto">
+                        <div class="section_title mb-4 text-center">
+                            <h2><span data-i18n="exp.title">Work & Experience</span></h2>
+                            <p class="section_subtitle mx-auto" data-i18n="exp.sub">Industry, side projects, and academic highlights</p>
+                        </div>
+                    </div>
+                    <div class="exp-tab-nav">
+                        <button class="exp-tab-btn active" onclick="switchExpTab('tab-core')" data-i18n="exp.tab1">① .NET @ WiseTech</button>
+                        <button class="exp-tab-btn" onclick="switchExpTab('tab-ai')" data-i18n="exp.tab2">② AI Full-Stack (side)</button>
+                        <button class="exp-tab-btn" onclick="switchExpTab('tab-school')" data-i18n="exp.tab3">③ Academic highlights</button>
+                    </div>
+                    <!-- Tab 1 -->
+                    <div class="exp-tab-pane active" id="tab-core">
+                        <div class="exp-card">
+                            <div class="exp-card-header">
+                                <h4 class="exp-card-title">WiseTech Global</h4><span class="exp-card-badge">2024.11 – 2026.05</span>
+                            </div>
+                            <div class="exp-card-sub">System Components - CORE · .NET Software Engineer · C#</div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core1.title">Core component upgrade & compatibility</div>
+                                <p class="exp-item-desc" data-i18n="exp.core1.desc">Upgraded MailKit (v4.11.0 → v4.14.1) and resolved diamond dependency conflicts in mixed .NET Framework 4.8 / .NET Standard 2.0 environment. Added NTLM auth fallback for Exchange Server compatibility.</p>
+                                <div class="tech-tags"><span class="tech-tag">C# / .NET</span><span class="tech-tag">MailKit</span><span class="tech-tag">Paket</span><span class="tech-tag">NTLM</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core2.title">Concurrency & memory leak fixes</div>
+                                <p class="exp-item-desc" data-i18n="exp.core2.desc">Fixed ThreadSentry cross-thread access in BusinessObjectFactory and GDI handle leak (120+ Factory objects) via WeakReference tests.</p>
+                                <div class="tech-tags"><span class="tech-tag">ThreadSentry</span><span class="tech-tag">GDI</span><span class="tech-tag">WeakReference</span><span class="tech-tag">Memory Profiler</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core3.title">DB & reporting performance</div>
+                                <p class="exp-item-desc" data-i18n="exp.core3.desc">Refactored audit log reporting by moving to dedicated audit DB, read/write separation, and index tuning.</p>
+                                <div class="tech-tags"><span class="tech-tag">SQL Server</span><span class="tech-tag">indexing</span><span class="tech-tag">read/write split</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core4.title">Security & permission hardening</div>
+                                <p class="exp-item-desc" data-i18n="exp.core4.desc">Fixed NXML export permission bypass and scheduled reports logic flaw. Patched CVE vulnerabilities.</p>
+                                <div class="tech-tags"><span class="tech-tag">authorization</span><span class="tech-tag">strategy pattern</span><span class="tech-tag">CVE</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core5.title">WinForms → Blazor migration</div>
+                                <p class="exp-item-desc" data-i18n="exp.core5.desc">Adapted legacy WinForms to Blazor: fixed async race conditions, mouse event simulation, stream timeouts, and recursive event propagation.</p>
+                                <div class="tech-tags"><span class="tech-tag">WinForms</span><span class="tech-tag">Blazor</span><span class="tech-tag">async</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core6.title">UI automation refactor</div>
+                                <p class="exp-item-desc" data-i18n="exp.core6.desc">Refactored Playwright E2E tests to modern Locator API, eliminating hard-coded waits and reducing CI flakiness.</p>
+                                <div class="tech-tags"><span class="tech-tag">Playwright</span><span class="tech-tag">Locator API</span><span class="tech-tag">CI/CD</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.core7.title">Korea e-invoicing compliance</div>
+                                <p class="exp-item-desc" data-i18n="exp.core7.desc">Implemented tax type mapping and rule engine for NTS compliance; refactored legacy country code logic.</p>
+                                <div class="tech-tags"><span class="tech-tag">compliance</span><span class="tech-tag">XML</span><span class="tech-tag">rule engine</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab 2: AI -->
+                    <div class="exp-tab-pane" id="tab-ai">
+                        <div class="exp-card">
+                            <div class="exp-card-header">
+                                <h4 class="exp-card-title" data-i18n="exp.ai.title">AI Full-Stack (Side Projects)</h4><span class="exp-card-badge">2025.05 – present</span>
+                            </div>
+                            <div class="exp-card-sub" data-i18n="exp.ai.sub">Medical data visualization · LLM · MCP</div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.ai1.title">Health checkup dashboard & Q&A</div>
+                                <p class="exp-item-desc" data-i18n="exp.ai1.desc">Full-stack dashboard for physical exam centers, deployed at Beijing Shijitan Hospital and Shanghai Fourth Hospital. 6 analysis tabs, real-time room utilization, patient tracking, and MCP-based LLM Q&A with PPT export.</p>
+                                <div class="tech-tags"><span class="tech-tag">Python Flask</span><span class="tech-tag">MCP</span><span class="tech-tag">LLM</span><span class="tech-tag">visualization</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.ai2.title">MRI scheduling & AI optimization</div>
+                                <p class="exp-item-desc" data-i18n="exp.ai2.desc">Analytics platform for MRI booking: trend analysis, drill-down, and AI-driven parameter optimization with tool calling.</p>
+                                <div class="tech-tags"><span class="tech-tag">MCP</span><span class="tech-tag">AI tools</span><span class="tech-tag">RBAC</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.ai3.title">Smart ward management</div>
+                                <p class="exp-item-desc" data-i18n="exp.ai3.desc">AI-assisted ward system with patient prediction, waiting area distribution, and dual-mode video analytics (crowd counting & fall detection).</p>
+                                <div class="tech-tags"><span class="tech-tag">AI video</span><span class="tech-tag">real-time</span><span class="tech-tag">fall detection</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.ai4.title">Intelligent business generator</div>
+                                <p class="exp-item-desc" data-i18n="exp.ai4.desc">NodeJS backend connected to hospital SQL Server + LLM. Users describe needs, system matches SQL templates, generates dynamic HTML/JS apps and deploys them with lifecycle management.</p>
+                                <div class="tech-tags"><span class="tech-tag">NodeJS</span><span class="tech-tag">SQL Server</span><span class="tech-tag">LLM</span><span class="tech-tag">dynamic pages</span></div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-item-title" data-i18n="exp.ai5.title">Automated API testing</div>
+                                <p class="exp-item-desc" data-i18n="exp.ai5.desc">NextJS-based test platform that auto-generates test cases and executes stored procedure-level tests, producing full reports.</p>
+                                <div class="tech-tags"><span class="tech-tag">NextJS</span><span class="tech-tag">auto-test</span><span class="tech-tag">stored procedures</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab 3: School -->
+                    <div class="exp-tab-pane" id="tab-school">
+                        <div class="exp-card">
+                            <div class="exp-card-header">
+                                <h4 class="exp-card-title" data-i18n="exp.school.title">Selected Academic Achievements</h4><span class="exp-card-badge">2018 – 2025</span>
+                            </div>
+                            <div class="exp-card-sub" data-i18n="exp.school.sub">Nanjing Normal University (BSc) → Nanjing University of Science & Technology (MSc, direct admission)</div>
+                            <ul class="school-list">
+                                <li data-i18n="exp.school.li1">ACM-ICPC Asia Regional <strong>Silver Medal</strong> (team captain)</li>
+                                <li data-i18n="exp.school.li2"><strong>National Scholarship</strong> twice (both undergraduate and postgraduate, top 0.2%)</li>
+                                <li data-i18n="exp.school.li3">First-author <strong>CCF-A</strong> paper (TVCG, IEEE VIS) and <strong>SCI Q1</strong> (TIP) paper; currently revising TCSVT</li>
+                                <li data-i18n="exp.school.li4">Java development intern at <strong>Alibaba Group</strong> with return offer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HONORS -->
+    <section class="section client-Testimonials" id="client" data-section="client" style="background:#f8faff;">
+        <div class="section-area">
+            <div class="section-content">
+                <div class="container">
+                    <div class="title-block mx-auto">
+                        <div class="section_title mb-4 text-center">
+                            <h2><span data-i18n="honors.title">Honors & Awards</span></h2>
+                            <p class="section_subtitle mx-auto" data-i18n="honors.sub">Selected achievements during academic years</p>
+                        </div>
+                    </div>
+                    <div class="honor-grid">
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h1">ACM-ICPC Asia Regional Silver (Captain)</p>
+                            <div class="honor-card-year">2021.06</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h2">ACM-ICPC Asia Regional Bronze (Captain, multiple)</p>
+                            <div class="honor-card-year">2020.09</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Scholarship</div>
+                            <p class="honor-card-title" data-i18n="honors.h3">National Scholarship (undergrad) 3/812</p>
+                            <div class="honor-card-year">2022.10</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Scholarship</div>
+                            <p class="honor-card-title" data-i18n="honors.h4">National Scholarship (postgrad) 4/1086</p>
+                            <div class="honor-card-year">2023.10</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h5">Lanqiao Cup Python Grad Group 1st Prize (Jiangsu #1, National #4)</p>
+                            <div class="honor-card-year">2023.05</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h6">National College CS Design Competition 1st Prize</p>
+                            <div class="honor-card-year">2021.08</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h7">Lanqiao Cup C++ Group A 2nd Prize</p>
+                            <div class="honor-card-year">2021.05</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Assessment</div>
+                            <p class="honor-card-title" data-i18n="honors.h8">CCF-CSP Top 0.86%</p>
+                            <div class="honor-card-year">2021.11</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.prov">Provincial · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h9">Jiangsu Collegiate Programming Contest Gold (Captain, multiple)</p>
+                            <div class="honor-card-year">2021–2022</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.prov">Provincial · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h10">Huawei Software Elite Challenge 2nd Prize (14/1041)</p>
+                            <div class="honor-card-year">2023.04</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.nat">National · Contest</div>
+                            <p class="honor-card-title" data-i18n="honors.h11">Zhishu Zhidao Programming Contest 3rd Prize</p>
+                            <div class="honor-card-year">2021.04</div>
+                        </div>
+                        <div class="honor-card">
+                            <div class="honor-card-level" data-i18n="honors.level.acad">Academic</div>
+                            <p class="honor-card-title" data-i18n="honors.h12">First-author CCF-A (IEEE VIS) + SCI Q1 (IEEE TIP)</p>
+                            <div class="honor-card-year">2023–2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" data-section="contact">
+        <div class="section-area">
+            <div class="section-content">
+                <div class="container">
+                    <div class="title-block mx-auto">
+                        <div class="section_title mb-4 text-center">
+                            <h2><span data-i18n="contact.title">Contact Me</span></h2>
+                            <p class="section_subtitle mx-auto" data-i18n="contact.sub">Reach out via any channel below</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="contact-info text-center">
+                                <div class="icon"><i class="mdi mdi-cellphone"></i></div>
+                                <div class="content">
+                                    <h4 class="title font-weight-bold" data-i18n="contact.phone">Phone</h4>
+                                    <p class="text-muted" data-i18n="contact.phoneSub">Available anytime</p><a href="tel:+8618761684588" class="h6 text-theme">+86 187-6168-4588</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-info text-center">
+                                <div class="icon"><i class="mdi mdi-email"></i></div>
+                                <div class="content">
+                                    <h4 class="title font-weight-bold" data-i18n="contact.email">Email</h4>
+                                    <p class="text-muted" data-i18n="contact.emailSub">I check regularly</p><a href="mailto:yeshunlong@outlook.com" class="h6 text-theme">yeshunlong@outlook.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-info text-center">
+                                <div class="icon"><i class="mdi mdi-map-marker-radius-outline"></i></div>
+                                <div class="content">
+                                    <h4 class="title font-weight-bold" data-i18n="contact.location">Location</h4>
+                                    <p class="text-muted" data-i18n="contact.locationSub">Nanjing, Jiangsu, China</p><a href="https://map.baidu.com/" class="h6 text-theme" data-i18n="contact.mapLink">Find on Baidu Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="copy-right text-center">Copyright &copy; 2026 Shunlong Ye. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -982,38 +861,227 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/typed.min.js"></script>
-    <!-- Main Js -->
     <script src="js/main.js"></script>
 
     <script>
-        // ===== 经历 Tab 切换 =====
+        // ===== 导航切换控制 =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.menu-list .list-group-item a');
+            const sections = document.querySelectorAll('.section');
+
+            function switchSection(sectionId) {
+                // 隐藏所有 section
+                sections.forEach(function (sec) {
+                    sec.classList.remove('active');
+                });
+                // 显示目标 section
+                const target = document.querySelector('.section[data-section="' + sectionId + '"]');
+                if (target) {
+                    target.classList.add('active');
+                }
+                // 更新导航高亮
+                navLinks.forEach(function (link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    if (sectionId) {
+                        switchSection(sectionId);
+                        // 更新 URL hash（可选）
+                        history.pushState(null, null, '#' + sectionId);
+                    }
+                });
+            });
+
+            // 页面加载时根据 hash 或默认显示 home
+            const hash = window.location.hash.replace('#', '') || 'home';
+            if (document.querySelector('.section[data-section="' + hash + '"]')) {
+                switchSection(hash);
+            } else {
+                switchSection('home');
+            }
+
+            // 监听 hash 变化（浏览器前进/后退）
+            window.addEventListener('hashchange', function () {
+                const h = window.location.hash.replace('#', '') || 'home';
+                if (document.querySelector('.section[data-section="' + h + '"]')) {
+                    switchSection(h);
+                }
+            });
+        });
+
+        // ===== 语言切换 =====
+        const i18n = {
+            en: {
+                'nav.home': 'Home', 'nav.about': 'About', 'nav.experience': 'Experience', 'nav.honors': 'Honors', 'nav.contact': 'Contact',
+                'home.hello': 'Hello', 'home.iAm': 'I am a&nbsp;<span class="typed"></span>',
+                'home.tag1': '.NET Software Engineer', 'home.tag2': 'AI Full-Stack Developer', 'home.tag3': 'M.Sc. in CS, NJUST',
+                'about.title': 'About Me', 'about.sub': 'Software engineer with research background in computer vision, now building enterprise .NET solutions and AI-powered medical applications.',
+                'about.greeting': 'Get to know me',
+                'about.p1': 'I worked at <strong>WiseTech Global</strong> (the largest SaaS company in freight forwarding) as a .NET Software Engineer (Nov 2024 – Jun 2026), maintaining core components of CargoWise in C#, handling dependency upgrades, thread-safety fixes, DB performance, and UI framework adaptation.',
+                'about.p2': 'In parallel, I build AI full-stack solutions for medical institutions using MCP + LLM, delivering data visualization and Q&A systems deployed at Beijing Shijitan Hospital, Shanghai Fourth Hospital, and more.',
+                'about.p3': 'During my studies, I published first-author papers at CCF-A conference (TVCG) and SCI Q1 journal (TIP), and I\'m currently revising a TCSVT paper. I won National Scholarship twice, and earned ACM-ICPC silver medal as team captain.',
+                'about.resumeCN': 'View my PDF resume (Chinese, LaTeX)', 'about.resumeCNLink': 'here',
+                'about.resumeEN': 'View my PDF resume (English, LaTeX)', 'about.resumeENLink': 'here',
+                'about.counter1': 'months worked', 'about.counter2': 'languages', 'about.counter3': 'hospitals deployed', 'about.counter4': 'national awards',
+                'about.exp1title': '.NET Software Engineer', 'about.exp1desc': 'C# / enterprise logistics platform',
+                'about.exp2title': 'AI Full-Stack', 'about.exp2desc': 'MCP + LLM for medical Q&A',
+                'about.exp3title': 'Computer Vision', 'about.exp3desc': 'Medical image segmentation, CCF-A / SCI Q1',
+                'exp.title': 'Work & Experience', 'exp.sub': 'Industry, side projects, and academic highlights',
+                'exp.tab1': '① .NET @ WiseTech', 'exp.tab2': '② AI Full-Stack (side)', 'exp.tab3': '③ Academic highlights',
+                'exp.core1.title': 'Core component upgrade & compatibility', 'exp.core1.desc': 'Upgraded MailKit (v4.11.0 → v4.14.1) and resolved diamond dependency conflicts in mixed .NET Framework 4.8 / .NET Standard 2.0 environment. Added NTLM auth fallback for Exchange Server compatibility.',
+                'exp.core2.title': 'Concurrency & memory leak fixes', 'exp.core2.desc': 'Fixed ThreadSentry cross-thread access in BusinessObjectFactory and GDI handle leak (120+ Factory objects) via WeakReference tests.',
+                'exp.core3.title': 'DB & reporting performance', 'exp.core3.desc': 'Refactored audit log reporting by moving to dedicated audit DB, read/write separation, and index tuning.',
+                'exp.core4.title': 'Security & permission hardening', 'exp.core4.desc': 'Fixed NXML export permission bypass and scheduled reports logic flaw. Patched CVE vulnerabilities.',
+                'exp.core5.title': 'WinForms → Blazor migration', 'exp.core5.desc': 'Adapted legacy WinForms to Blazor: fixed async race conditions, mouse event simulation, stream timeouts, and recursive event propagation.',
+                'exp.core6.title': 'UI automation refactor', 'exp.core6.desc': 'Refactored Playwright E2E tests to modern Locator API, eliminating hard-coded waits and reducing CI flakiness.',
+                'exp.core7.title': 'Korea e-invoicing compliance', 'exp.core7.desc': 'Implemented tax type mapping and rule engine for NTS compliance; refactored legacy country code logic.',
+                'exp.ai.title': 'AI Full-Stack (Side Projects)', 'exp.ai.sub': 'Medical data visualization · LLM · MCP',
+                'exp.ai1.title': 'Health checkup dashboard & Q&A', 'exp.ai1.desc': 'Full-stack dashboard for physical exam centers, deployed at Beijing Shijitan Hospital and Shanghai Fourth Hospital. 6 analysis tabs, real-time room utilization, patient tracking, and MCP-based LLM Q&A with PPT export.',
+                'exp.ai2.title': 'MRI scheduling & AI optimization', 'exp.ai2.desc': 'Analytics platform for MRI booking: trend analysis, drill-down, and AI-driven parameter optimization with tool calling.',
+                'exp.ai3.title': 'Smart ward management', 'exp.ai3.desc': 'AI-assisted ward system with patient prediction, waiting area distribution, and dual-mode video analytics (crowd counting & fall detection).',
+                'exp.ai4.title': 'Intelligent business generator', 'exp.ai4.desc': 'NodeJS backend connected to hospital SQL Server + LLM. Users describe needs, system matches SQL templates, generates dynamic HTML/JS apps and deploys them with lifecycle management.',
+                'exp.ai5.title': 'Automated API testing', 'exp.ai5.desc': 'NextJS-based test platform that auto-generates test cases and executes stored procedure-level tests, producing full reports.',
+                'exp.school.title': 'Selected Academic Achievements', 'exp.school.sub': 'Nanjing Normal University (BSc) → Nanjing University of Science & Technology (MSc, direct admission)',
+                'exp.school.li1': 'ACM-ICPC Asia Regional <strong>Silver Medal</strong> (team captain)',
+                'exp.school.li2': '<strong>National Scholarship</strong> twice (both undergraduate and postgraduate, top 0.2%)',
+                'exp.school.li3': 'First-author <strong>CCF-A</strong> paper (TVCG, IEEE VIS) and <strong>SCI Q1</strong> (TIP) paper; currently revising TCSVT',
+                'exp.school.li4': 'Java development intern at <strong>Alibaba Group</strong> with return offer',
+                'honors.title': 'Honors & Awards', 'honors.sub': 'Selected achievements during academic years',
+                'honors.level.nat': 'National · Contest', 'honors.level.prov': 'Provincial · Contest', 'honors.level.acad': 'Academic',
+                'honors.h1': 'ACM-ICPC Asia Regional Silver (Captain)', 'honors.h2': 'ACM-ICPC Asia Regional Bronze (Captain, multiple)',
+                'honors.h3': 'National Scholarship (undergrad) 3/812', 'honors.h4': 'National Scholarship (postgrad) 4/1086',
+                'honors.h5': 'Lanqiao Cup Python Grad Group 1st Prize (Jiangsu #1, National #4)',
+                'honors.h6': 'National College CS Design Competition 1st Prize', 'honors.h7': 'Lanqiao Cup C++ Group A 2nd Prize',
+                'honors.h8': 'CCF-CSP Top 0.86%', 'honors.h9': 'Jiangsu Collegiate Programming Contest Gold (Captain, multiple)',
+                'honors.h10': 'Huawei Software Elite Challenge 2nd Prize (14/1041)',
+                'honors.h11': 'Zhishu Zhidao Programming Contest 3rd Prize',
+                'honors.h12': 'First-author CCF-A (IEEE VIS) + SCI Q1 (IEEE TIP)',
+                'contact.title': 'Contact Me', 'contact.sub': 'Reach out via any channel below',
+                'contact.phone': 'Phone', 'contact.phoneSub': 'Available anytime',
+                'contact.email': 'Email', 'contact.emailSub': 'I check regularly',
+                'contact.location': 'Location', 'contact.locationSub': 'Jianye, Nanjing, Jiangsu',
+                'contact.mapLink': 'Find on Baidu Maps'
+            },
+            zh: {
+                'nav.home': '首页', 'nav.about': '自述', 'nav.experience': '经历', 'nav.honors': '荣誉', 'nav.contact': '联系我',
+                'home.hello': '你好', 'home.iAm': '我是一名&nbsp;<span class="typed"></span>',
+                'home.tag1': '.NET 软件开发工程师', 'home.tag2': 'AI 全栈开发者', 'home.tag3': '南京理工大学计算机硕士',
+                'about.title': '关于我', 'about.sub': '软件开发工程师，在读期间从事计算机视觉方向的学术研究，毕业后加入 WiseTech Global 从事 .NET 企业级软件开发，并在业余时间持续进行 AI 全栈应用的探索。',
+                'about.greeting': '简单认识一下我',
+                'about.p1': '我曾在 <strong>慧咨环球（WiseTech Global，国际货运代理领域最大的SaaS软件公司）</strong> 担任 .NET 软件开发工程师（2024年11月至2026年6月），主要使用 C# 参与企业级物流软件 CargoWise 的核心组件维护与迭代，负责第三方依赖升级、线程安全修复、数据库性能优化及 UI 框架适配等工作。',
+                'about.p2': '与此同时，我在业余时间以 <strong>AI 全栈开发</strong>方式持续输出，主要面向医疗机构，使用 MCP 协议 + 大语言模型接口，落地了多个体检与医疗数据可视化及智能问答系统，已在北京世纪坛医院、上海四院等机构投入使用。',
+                'about.p3': '在校期间，我以 <strong>学生一作</strong>身份发表 CCF A 类会议论文及 SCI 一区期刊论文各一篇（且目前仍在进行科研工作），曾获本科和硕士两次<strong>国家奖学金</strong>，并以队长身份在 ACM-ICPC 中斩获<strong>银牌</strong>。',
+                'about.resumeCN': '查看我的PDF简历（中文版）', 'about.resumeCNLink': '这里',
+                'about.resumeEN': '查看我的PDF简历（英文版）', 'about.resumeENLink': '这里',
+                'about.counter1': '工作月数（含实习）', 'about.counter2': '熟练掌握的编程语言', 'about.counter3': 'AI系统落地医疗机构', 'about.counter4': '国家级以上荣誉',
+                'about.exp1title': '.NET 软件开发工程师', 'about.exp1desc': '使用 C# 参与大型企业级物流平台 CargoWise 的核心组件迭代维护',
+                'about.exp2title': 'AI 全栈开发', 'about.exp2desc': '基于 MCP + LLM 开发医疗数据可视化与智能问答系统',
+                'about.exp3title': '计算机视觉研究', 'about.exp3desc': '研究方向为医学图像分割，以一作身份发表 CCF A 类及 SCI 一区期刊论文',
+                'exp.title': '工作与经历', 'exp.sub': '工作经历、副业项目与在校成果',
+                'exp.tab1': '① .NET 软件开发（慧咨环球）', 'exp.tab2': '② AI 全栈开发（副业）', 'exp.tab3': '③ 在校成果（精选）',
+                'exp.core1.title': '核心组件升级与兼容性维护', 'exp.core1.desc': '负责邮件处理组件 MailKit 及相关第三方依赖的跨版本升级（v4.11.0 → v4.14.1）。在 .NET Framework 4.8 与 .NET Standard 2.0 混合构建环境中，解决了 System.Buffers / System.Memory 等库的菱形依赖冲突，同时补充了 NTLM 认证握手探测逻辑，使新版组件向下兼容旧版 Exchange Server。',
+                'exp.core2.title': '多线程并发排查与内存泄漏修复', 'exp.core2.desc': '调查并修复业务对象工厂 BusinessObjectFactory 中的 ThreadSentry 跨线程访问异常，定位根因为 特定Service 错误创建了额外的 Factory 实例。同步修复了 KTextBox 控件事件反注册中误用导致的 GDI 句柄泄漏（120+ 个未释放 Factory 对象），并通过 WeakReference 单元测试验证内存释放行为。',
+                'exp.core3.title': '数据库查询与报表性能优化', 'exp.core3.desc': '参与重构审计日志报表加载超时问题：将全局事件查询迁移至专用审计数据库，实现读写分离；将报表数据获取逻辑从扫描 EDT 事件改写为基于 ATC/DTC 事件，大幅减少无效日志扫描量。另对数据库表的宽聚集索引进行降级重构，减少页分裂与 B-Tree 维护成本。',
+                'exp.core4.title': '系统安全与权限逻辑加固', 'exp.core4.desc': '修复 NXML 导出功能的权限漏洞，采用策略模式设计接口，解耦安全检查逻辑与业务逻辑。修复 Scheduled Reports 模块中通过权限组合（"复制+删除"）间接绕过他人数据保护的逻辑漏洞。同时修复已知 CVE 漏洞。',
+                'exp.core5.title': 'WinForms → Web 框架适配（Blazor）', 'exp.core5.desc': '参与将传统 WinForms 桌面应用迁移至 Blazor Web 框架的适配工作。修复异步竞态条件（ContextMenu.UpdateAsync 在对象销毁后仍被调用）、鼠标事件模拟（用 MouseEnter/Leave 替代高频 MouseMove）、光标位置同步等问题；修复流式 I/O 超时（RemoteJSDataStream 生命周期管理）；在控件基类中补全相应事件的递归触发逻辑。',
+                'exp.core6.title': 'UI 自动化测试重构', 'exp.core6.desc': '系统性重构 Playwright UI 端到端测试用例，将旧版 ElementHandle API 全面迁移至现代 Locator API（内置自动等待）；移除代码中大量硬编码等待，改用基于状态断言的 WaitFor 机制，显著降低了 CI/CD 流水线上的随机超时故障率。',
+                'exp.core7.title': '韩国电子发票合规性开发', 'exp.core7.desc': '为满足韩国国税厅（NTS）最新合规要求，重构电子发票税务类型映射逻辑，实现更细粒度的税务分类规则引擎；同步对大量遗留类按国家代码标准进行重构，消除缩写歧义。',
+                'exp.ai.title': 'AI 全栈开发（副业）', 'exp.ai.sub': '医疗数据可视化 · 大模型应用 · MCP',
+                'exp.ai1.title': '体检数据可视化与智能问答系统', 'exp.ai1.desc': '面向体检中心开发的全栈数据看板系统，已在北京世纪坛医院、上海四院等机构落地使用。前端整合六大分析页签（监控、总览、人员、队列、基础、AI），支持当日检查室实时利用率、VIP 排队状态、患者行动轨迹全链路监控。接入基于 MCP 协议的大语言模型，支持多轮自然语言问答、一键导出运行报表、AI 生成分诊参数优化建议与 PPT 报告。后端 Python Flask 实现，前端支持行走距离矩阵编辑与 JSON 导入导出。',
+                'exp.ai2.title': '核磁检查预约数据可视化及 AI 参数优化系统', 'exp.ai2.desc': '为核磁检查科室开发的预约调度数据分析平台。支持当日与时间段总体指标看板、等待时间与设备利用率趋势分析、日/周/月/年环比统计；提供预约排班详情与历史开单的钻取查询。AI 能力模块支持后台定时计算参数优化建议、前台获取预测结果、管理员确认后通过工具调用应用建议；同时支持结合历史对话与业务数据的自然语言多轮问答。',
+                'exp.ai3.title': '智能病区管理系统', 'exp.ai3.desc': '面向门诊病区的 AI 辅助管理系统。支持 AI 门诊预测（医生看诊时间预估与超阈值预警）、候诊区分布统计、双模式 AI 视频分析（候诊区人数监测与患者跌倒检测）；视频流支持本地视频流、摄像头实时流、浏览器上传帧三种方式；跌倒监测支持状态判定、警报列表、警报确认与统计；音量联动模块可按人数阈值自动计算播报建议音量。',
+                'exp.ai4.title': '智能业务生成系统', 'exp.ai4.desc': '基于 NodeJS 的后台系统，连接医院 SQL Server 数据库并集成大模型能力。用户在前端对话界面输入需求后，系统自动识别需求类型（报表、问卷、数据处理、数据分析、脱敏导出、摘要生成等），从预定义 SQL 模板库中匹配并调用合适的 SQL 组合执行查询，将返回数据动态渲染为可访问的 HTML/JS Web 应用并部署至独立 URL 路径。系统提供已生成应用的全生命周期管理，支持列表展示、启停控制、删除及访问 URL 查看。',
+                'exp.ai5.title': '自动接口测试系统', 'exp.ai5.desc': '基于 NextJS 构建的门诊系统自动化功能测试平台。用户输入初步需求后，系统自动生成覆盖多场景的测试用例，并自动执行存储过程级别的接口测试，最终输出完整测试报告。支持测试用例的自动生成与执行闭环，有效提升门诊系统基础版本的回归测试效率与接口验证覆盖率。',
+                'exp.school.title': '在校期间取得的主要成果（精选）', 'exp.school.sub': '南京师范大学（本科）→ 南京理工大学（保送硕士）· 计算机科学与技术',
+                'exp.school.li1': '以队长身份参加 ACM-ICPC 国际大学生程序设计竞赛，获亚洲区域赛<strong>银牌</strong>',
+                'exp.school.li2': '本科与硕士阶段均获<strong>国家奖学金</strong>（连续两次，比例约 0.2%）',
+                'exp.school.li3': '以<strong>第一作者</strong>发表 <strong>CCF A 类会议论文</strong>一篇（TVCG，IEEE Transactions on Visualization and Computer Graphics）及 <strong>SCI 一区 TOP 期刊（TIP）论文</strong>一篇（目前仍在进行SCI一区期刊（TCSVT）论文的修改工作）',
+                'exp.school.li4': '曾于<strong>阿里巴巴集团</strong>实习 Java 开发工程师，并顺利取得转正资格',
+                'honors.title': '荣誉与奖项', 'honors.sub': '在校期间取得的部分荣誉',
+                'honors.level.nat': '国家级 · 竞赛', 'honors.level.prov': '省级 · 竞赛', 'honors.level.acad': '学术成果',
+                'honors.h1': 'ACM-ICPC 亚洲区域赛 银牌（队长）', 'honors.h2': 'ACM-ICPC 亚洲区域赛 铜牌（队长·多次）',
+                'honors.h3': '国家奖学金（本科）3/812', 'honors.h4': '国家奖学金（硕士）4/1086',
+                'honors.h5': '蓝桥杯 Python 研究生组 一等奖（江苏省第一·全国第四）',
+                'honors.h6': '全国大学生计算机设计大赛 一等奖（国家级）', 'honors.h7': '蓝桥杯 C++ A 组 二等奖（国家级）',
+                'honors.h8': 'CCF-CSP 全国前 0.86%', 'honors.h9': '江苏省大学生程序设计竞赛 金牌（队长·多次）',
+                'honors.h10': '华为软件精英挑战赛 二等奖（14/1041）',
+                'honors.h11': '智算之道程序设计竞赛 三等奖',
+                'honors.h12': '第一作者 · CCF A 类会议 IEEE VIS + SCI 一区 IEEE TIP',
+                'contact.title': '联系我', 'contact.sub': '欢迎通过以下方式与我取得联系',
+                'contact.phone': '手机', 'contact.phoneSub': '随时欢迎来电',
+                'contact.email': '邮箱', 'contact.emailSub': '我会定期查看邮箱',
+                'contact.location': '地点', 'contact.locationSub': '中国 · 江苏省 · 南京市',
+                'contact.mapLink': '在百度地图上找到我'
+            }
+        };
+
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key] !== undefined) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+            const toggle = document.getElementById('langToggle');
+            if (lang === 'en') {
+                toggle.innerHTML = '中文';
+                toggle.dataset.lang = 'en';
+            } else {
+                toggle.innerHTML = 'English';
+                toggle.dataset.lang = 'zh';
+            }
+            
+            // ====== 修复与重新初始化 Typed 特效 ======
+            const $typedEl = $('.typed');
+            if ($typedEl.length > 0) {
+                // 如果使用的 jQuery 插件支持 destroy，可以尝试销毁，或直接清空文字和光标
+                if ($typedEl.data('typed')) {
+                    $typedEl.data('typed').destroy();
+                }
+                $typedEl.html(''); // 清空旧文字
+                $('.typed-cursor').remove(); // 移除旧的光标防止生成多个
+
+                const strings = lang === 'en' 
+                    ? ['.NET Software Engineer', 'AI Full-Stack Developer', 'M.Sc. in CS'] 
+                    : ['.NET 软件开发工程师', 'AI 全栈开发者', '南京理工大学计算机硕士'];
+                
+                // 使用与 main.js 一致的 jQuery 插件语法进行初始化
+                $typedEl.typed({
+                    strings: strings,
+                    typeSpeed: 60,
+                    backSpeed: 20,
+                    backDelay: 1000,
+                    loop: true
+                });
+            }
+        }
+        document.getElementById('langToggle').addEventListener('click', function () {
+            const nextLang = this.dataset.lang === 'en' ? 'zh' : 'en';
+            currentLang = nextLang;
+            applyLanguage(nextLang);
+        });
+
+        // 默认英文
+        applyLanguage('en');
+
+        // 经历 Tab 切换
         function switchExpTab(tabId) {
-            document.querySelectorAll('.exp-tab-pane').forEach(function (p) {
-                p.classList.remove('active');
-            });
-            document.querySelectorAll('.exp-tab-btn').forEach(function (b) {
-                b.classList.remove('active');
-            });
+            document.querySelectorAll('.exp-tab-pane').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.exp-tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
-
-        // ===== 项目集筛选 =====
-        function filterPortfolio(cat, btn) {
-            document.querySelectorAll('.pf-btn').forEach(function (b) {
-                b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            document.querySelectorAll('.portfolio-grid-item').forEach(function (item) {
-                if (cat === 'all' || item.dataset.cat === cat) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
     </script>
-
 </body>
 
 </html>
